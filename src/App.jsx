@@ -1,35 +1,117 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { Routes, Route } from "react-router";
+import Events from "./pages/Events";
+import Likes from "./pages/Likes";
+import Matches from "./pages/Matches";
+import Profile from "./pages/Profile";
+import Message from "./pages/Message";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import ProfileEdit from "./pages/ProfileEdit";
+import EventDetails from "./pages/EventDetails";
+import EventEdit from "./pages/EventEdit";
+import EventCreate from "./pages/EventCreate";
+import Home from "./pages/Home";
+import IsPrivate from "./components/IsPrivate";
+import Navbar from "./components/Navbar";
+import Swipe from "./pages/Swipe";
+import NotFound from "./pages/NotFound";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/swipe"
+          element={
+            <IsPrivate>
+              <Swipe />
+            </IsPrivate>
+          }
+        />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/profile"
+          element={
+            <IsPrivate>
+              <Profile />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/profile/edit"
+          element={
+            <IsPrivate>
+              <ProfileEdit />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/events"
+          element={
+            <IsPrivate>
+              <Events />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/events/:id/details"
+          element={
+            <IsPrivate>
+              <EventDetails />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/events/:id/edit"
+          element={
+            <IsPrivate>
+              <EventEdit />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/events/create"
+          element={
+            <IsPrivate>
+              <EventCreate />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/likes"
+          element={
+            <IsPrivate>
+              <Likes />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/matches"
+          element={
+            <IsPrivate>
+              <Matches />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/matches/:messageid"
+          element={
+            <IsPrivate>
+              <Message />
+            </IsPrivate>
+          }
+        />
+
+        {/* error FE routes */}
+        <Route path="/error" element={<Error />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
