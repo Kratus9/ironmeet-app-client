@@ -106,7 +106,7 @@ function App() {
           }
         />
 
-        {/* error FE routes */}
+       
         <Route path="/error" element={<Error />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
