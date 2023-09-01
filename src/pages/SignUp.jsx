@@ -2,73 +2,69 @@ import { useNavigate } from "react-router-dom";
 import service from "../services/service.config";
 import { useState } from "react";
 
-
 function SignUp() {
-  
-    const countries = [
-      "Álava",
-      "Albacete",
-      "Alicante",
-      "Almería",
-      "Asturias",
-      "Ávila",
-      "Badajoz",
-      "Barcelona",
-      "Burgos",
-      "Cáceres",
-      "Cádiz",
-      "Cantabria",
-      "Castellón",
-      "Ciudad Real",
-      "Córdoba",
-      "Cuenca",
-      "Gerona",
-      "Granada",
-      "Guadalajara",
-      "Guipúzcoa",
-      "Huelva",
-      "Huesca",
-      "Islas Baleares",
-      "Jaén",
-      "La Coruña",
-      "La Rioja",
-      "Las Palmas",
-      "León",
-      "Lérida",
-      "Lugo",
-      "Madrid",
-      "Málaga",
-      "Murcia",
-      "Navarra",
-      "Orense",
-      "Palencia",
-      "Pontevedra",
-      "Salamanca",
-      "Santa Cruz de Tenerife",
-      "Segovia",
-      "Sevilla",
-      "Soria",
-      "Tarragona",
-      "Teruel",
-      "Toledo",
-      "Valencia",
-      "Valladolid",
-      "Vizcaya",
-      "Zamora",
-      "Zaragoza",
-    ]
-    // const options = countries.map((country) => ({ }));
+  const cities = [
+    "Álava",
+    "Albacete",
+    "Alicante",
+    "Almería",
+    "Asturias",
+    "Ávila",
+    "Badajoz",
+    "Barcelona",
+    "Burgos",
+    "Cáceres",
+    "Cádiz",
+    "Cantabria",
+    "Castellón",
+    "Ciudad Real",
+    "Córdoba",
+    "Cuenca",
+    "Gerona",
+    "Granada",
+    "Guadalajara",
+    "Guipúzcoa",
+    "Huelva",
+    "Huesca",
+    "Islas Baleares",
+    "Jaén",
+    "La Coruña",
+    "La Rioja",
+    "Las Palmas",
+    "León",
+    "Lérida",
+    "Lugo",
+    "Madrid",
+    "Málaga",
+    "Murcia",
+    "Navarra",
+    "Orense",
+    "Palencia",
+    "Pontevedra",
+    "Salamanca",
+    "Santa Cruz de Tenerife",
+    "Segovia",
+    "Sevilla",
+    "Soria",
+    "Tarragona",
+    "Teruel",
+    "Toledo",
+    "Valencia",
+    "Valladolid",
+    "Vizcaya",
+    "Zamora",
+    "Zaragoza",
+  ];
 
-    
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
-    tagline: "",
-    description: "",
-    first_brewed: "",
-    brewers_tips: "",
-    attenuation_level: 0,
-    contributed_by: "",
+    username: "",
+    email: "",
+    password: "",
+    age: 0,
+    location: "",
+    imgResult: "",
   });
 
   const handleOnChange = (event) => {
@@ -92,20 +88,19 @@ function SignUp() {
         imgResult: formData.imgResult,
       });
 
-      navigate("/login")
-
+      navigate("/login");
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        setErrorMessage(error.response.data.errorMessage)
+        setErrorMessage(error.response.data.errorMessage);
       } else {
-        navigate("/error")
+        navigate("/error");
       }
     }
   };
 
   return (
     <div>
-      <div ></div>
+      <div></div>
       <div>
         <form onSubmit={registerUser}>
           <label htmlFor="name">Name</label>
@@ -144,11 +139,7 @@ function SignUp() {
             onChange={handleOnChange}
             placeholder="Password"
           />
-          <label
-            htmlFor="repeatPassword"
-          >
-            Re-Enter Password
-          </label>
+          <label htmlFor="repeatPassword">Re-Enter Password</label>
           <input
             id="repeatPassword"
             name="repeatPassword"
@@ -157,11 +148,7 @@ function SignUp() {
             onChange={handleOnChange}
             placeholder="Re-Enter Password"
           />
-          <label
-            htmlFor="age"
-          >
-            Age
-          </label>
+          <label htmlFor="age">Age</label>
           <input
             id="age"
             name="age"
@@ -170,20 +157,23 @@ function SignUp() {
             onChange={handleOnChange}
             placeholder="Age"
           />
-          <label
-            htmlFor="location"
-          >
-            Age
-          </label>
-          <input
-            id="location"
-            name="location"
-            type="number"
-            required
-            onChange={handleOnChange}
-            placeholder="Age"
-          />
-
+          <label htmlFor="location">City</label>
+          <div className="city-select-container">
+            <select
+              id="location"
+              name="location"
+              onChange={handleOnChange}
+              required
+              value={formData.location}
+              className="city-select"
+            >
+              {cities.map((eachCity) => (
+                <option key={eachCity} value={eachCity}>
+                  {eachCity}
+                </option>
+              ))}
+            </select>
+          </div>
           <label htmlFor="image">Profile Image</label>
           <input
             id="image"
@@ -192,7 +182,6 @@ function SignUp() {
             accept="image/*"
             required
             onChange={handleOnChange}
- 
           />
           <button type="submit">Register</button>
         </form>
