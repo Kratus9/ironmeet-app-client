@@ -2,8 +2,45 @@ import { useNavigate } from "react-router-dom";
 import service from "../services/service.config";
 import { useState } from "react";
 
-function SignUp() {
-  const cities = [
+
+const SignUp = () => {
+
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: '',
+    username: '',
+    email: '',
+    password: '',
+    repeatPassword: '',
+    location: '',
+    age: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await service.post('/auth/signup', formData);
+      console.log('User registered successfully:', response.data.message);
+      navigate("/login");
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        setErrorMessage(error.response.data.errorMessage);
+      } else {
+        navigate("/error");
+      }
+    }
+  };
+
+  const locations = [
     "Álava",
     "Albacete",
     "Alicante",
@@ -56,138 +93,49 @@ function SignUp() {
     "Zaragoza",
   ];
 
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: "",
-    username: "",
-    email: "",
-    password: "",
-    age: 0,
-    location: "",
-    imgResult: "",
-  });
-
-  const handleOnChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const registerUser = async (event) => {
-    event.preventDefault();
-    try {
-      await service.post("/auth/signup", {
-        name: formData.name,
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
-        age: formData.age,
-        location: formData.location,
-        imgResult: formData.imgResult,
-      });
-
-      navigate("/login");
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        setErrorMessage(error.response.data.errorMessage);
-      } else {
-        navigate("/error");
-      }
-    }
-  };
-
   return (
     <div>
-      <div></div>
-      <div>
-        <form onSubmit={registerUser}>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            name="name"
-            type="name"
-            required
-            onChange={handleOnChange}
-            placeholder="Name"
-          />
-          <label htmlFor="username">Userame</label>
-          <input
-            id="username"
-            name="username"
-            type="name"
-            required
-            onChange={handleOnChange}
-            placeholder="Username"
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            onChange={handleOnChange}
-            placeholder="Email"
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            required
-            onChange={handleOnChange}
-            placeholder="Password"
-          />
-          <label htmlFor="repeatPassword">Re-Enter Password</label>
-          <input
-            id="repeatPassword"
-            name="repeatPassword"
-            type="password"
-            required
-            onChange={handleOnChange}
-            placeholder="Re-Enter Password"
-          />
-          <label htmlFor="age">Age</label>
-          <input
-            id="age"
-            name="age"
-            type="number"
-            required
-            onChange={handleOnChange}
-            placeholder="Age"
-          />
-          <label htmlFor="location">City</label>
-          <div className="city-select-container">
-            <select
-              id="location"
-              name="location"
-              onChange={handleOnChange}
-              required
-              value={formData.location}
-              className="city-select"
-            >
-              {cities.map((eachCity) => (
-                <option key={eachCity} value={eachCity}>
-                  {eachCity}
-                </option>
-              ))}
-            </select>
-          </div>
-          <label htmlFor="image">Profile Image</label>
-          <input
-            id="image"
-            name="image"
-            type="file"
-            accept="image/*"
-            required
-            onChange={handleOnChange}
-          />
-          <button type="submit">Register</button>
-        </form>
-      </div>
+      <h2>Signup</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Name:</label>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+        </div>
+        <div>
+          <label>Username:</label>
+          <input type="text" name="username" value={formData.username} onChange={handleChange} required />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+        </div>
+        <div>
+          <label>Repeat Password:</label>
+          <input type="password" name="repeatPassword" value={formData.repeatPassword} onChange={handleChange} required />
+        </div>
+        <div>
+          <label>Location:</label>
+          <select name="location" value={formData.location} onChange={handleChange} required>
+            <option value="">Select location</option>
+            {locations.map((location, index) => (
+              <option key={index} value={location}>
+                {location}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label>Age:</label>
+          <input type="text" name="age" value={formData.age} onChange={handleChange} required />
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
     </div>
   );
-}
+};
 
 export default SignUp;
