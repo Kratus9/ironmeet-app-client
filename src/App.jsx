@@ -16,6 +16,7 @@ import IsPrivate from "./components/IsPrivate";
 import Navbar from "./components/Navbar";
 import Swipe from "./pages/Swipe";
 import NotFound from "./pages/NotFound";
+import Error from "./pages/Error"
 
 function App() {
   return (
