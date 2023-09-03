@@ -15,7 +15,6 @@ function Profile() {
       navigate("/login")
     }
 
-
   return (
     <div>
         <button onClick={handleLogout}>Log Out</button>
