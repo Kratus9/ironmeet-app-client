@@ -5,7 +5,6 @@ const AuthContext = createContext()
 
 function AuthWrapper(props) {
 
-  // ...
   const [ isUserActive, setIsUserActive ] = useState(false)
   const [ activeUserId, setActiveUserId ] = useState(null)
   const [ isPageLoading, setIsPageLoading ] = useState(true)
@@ -15,7 +14,6 @@ function AuthWrapper(props) {
   }, [])
 
   const verifyToken = async () => {
-
     
     setIsPageLoading(true)
 
@@ -34,7 +32,6 @@ function AuthWrapper(props) {
       setActiveUserId(null)
       setIsPageLoading(false)
     }
-
   }
 
   const passedContext = {
@@ -53,7 +50,6 @@ function AuthWrapper(props) {
       {props.children}
     </AuthContext.Provider>
   )
-
 }
 
 export {
