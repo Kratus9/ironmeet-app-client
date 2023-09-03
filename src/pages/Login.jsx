@@ -23,6 +23,10 @@ function Login() {
       const response = await service.post("/auth/login", {
         username,
         password,
+      }, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
       });
       console.log(response);
 
