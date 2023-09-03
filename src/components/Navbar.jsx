@@ -13,11 +13,11 @@ function Navbar() {
       {isUserActive === true ? (
         <>
           
-          <Link to="/swipe"></Link>
-          <Link to="/events"></Link>
-          <Link to="/likes"></Link>
-          <Link to="/matches"></Link>
-          <Link to="/profile"></Link>
+          <Link to="/swipe">Swipe</Link>
+          <Link to="/events">Events</Link>
+          <Link to="/likes">Likes</Link>
+          <Link to="/matches">Matches</Link>
+          <Link to="/profile">Profile</Link>
 
         </>
       ) : (

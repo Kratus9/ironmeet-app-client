@@ -10,7 +10,6 @@ function Profile() {
     const handleLogout = () => {
       localStorage.removeItem("authToken")
   
-      // ! ...
       verifyToken() // verificar un token que no existe para reiniciar los estados
   
       navigate("/login")
