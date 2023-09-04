@@ -6,6 +6,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [imagePreview, setImagePreview] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [lastDirection, setLastDirection] = useState()
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -15,6 +16,7 @@ const SignUp = () => {
     age: "",
     location: "",
     gender: "",
+    preferences: "",
     image: null,
   });
 
@@ -55,6 +57,7 @@ const SignUp = () => {
       formDataToSend.append("age", formData.age);
       formDataToSend.append("gender", formData.gender);
       formDataToSend.append("location", formData.location);
+      formDataToSend.append("preferences", formData.preferences);
       formDataToSend.append("image", formData.image);
 
       console.log("Form Data:", formData);
@@ -124,7 +127,8 @@ const SignUp = () => {
     "Zaragoza",
   ];
 
-  const gender = ["Male", "Female", "Non-binary"];
+  const gender = ["Male", "Female", "Other"];
+  const preferences = ["Male", "Female", "Other"];
 
   return (
     <div>
@@ -192,6 +196,22 @@ const SignUp = () => {
             {gender.map((gender, index) => (
               <option key={index} value={gender}>
                 {gender}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label>Preferences:</label>
+          <select
+            name="preferences"
+            value={formData.preferences}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select preferences</option>
+            {preferences.map((preferences, index) => (
+              <option key={index} value={preferences}>
+                {preferences}
               </option>
             ))}
           </select>

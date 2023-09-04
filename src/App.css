@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700;800&display=swap');
+
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
   text-align: center;
+}
+
+* {
+  font-family: 'Readex Pro', sans-serif;
 }
 
 .city-select-container {
@@ -15,4 +25,56 @@
   width: 100%;
   max-height: 40px;
   overflow-y: auto;
+}
+
+.dashboard {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.dashboard .swipe-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.swipe {
+  position: absolute;
+}
+
+
+
+.card {
+  width: auto;
+  height: 650px;
+  border-radius: 30px;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.swipe-info-container{
+  display: flex;
+  text-align: center;
+
+  
+}
+
+
+.dashboard .swipe-info {
+  padding: 10px;
+}
+
+.tinder-card {
+  width: 100vw
 }
