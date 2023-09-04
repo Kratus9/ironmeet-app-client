@@ -239,6 +239,7 @@ const SignUp = () => {
           )}
         </div>
         <button type="submit">Sign Up</button>
+        {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
     </div>
   );

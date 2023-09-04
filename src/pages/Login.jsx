@@ -30,7 +30,7 @@ function Login() {
       });
       console.log(response);
 
-      //   almacenamos el token en el LocalStorage
+      
       localStorage.setItem("authToken", response.data.authToken);
 
       await verifyToken();
@@ -39,8 +39,8 @@ function Login() {
       
     } catch (error) {
       console.log(error);
-      if (error.response && error.response.status === 400) {
-        setErrorMessage(error.response.data.errorMessage);
+      if (error.response && error.response.status === 401) {
+        setErrorMessage("Invalid credentials");
       } else {
         navigate("/error");
       }
