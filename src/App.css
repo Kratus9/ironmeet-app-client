@@ -3,6 +3,8 @@
 #root {
   width: 100%;
   margin: 0 auto;
+
+  
 }
 
 html, body {
@@ -77,4 +79,39 @@ html, body {
 
 .tinder-card {
   width: 100vw
+}
+
+.matches-display {
+  padding: 20px;
+  height: 60vh;
+  overflow-y: auto;
+}
+
+.match-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.img-container {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+.chat-container {
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 14px;
+  justify-content: space-between;
+  width: 70%;
 }
