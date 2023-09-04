@@ -6,7 +6,6 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [imagePreview, setImagePreview] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
-  const [lastDirection, setLastDirection] = useState()
   const [formData, setFormData] = useState({
     name: "",
     username: "",
