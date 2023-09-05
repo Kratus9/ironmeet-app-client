@@ -16,6 +16,7 @@ function Profile() {
     location: "",
     gender: "",
     preferences: "",
+    description: "",
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -241,6 +242,19 @@ function Profile() {
             </select>
           ) : (
             <span>{userData.preferences}</span>
+          )}
+        </div>
+        <div>
+          <label>Tell the others about you:</label>
+          {isEditing ? (
+            <textarea
+              type="text"
+              name="description"
+              value={userData.description}
+              onChange={handleChange}
+            />
+          ) : (
+            <span>{userData.description}</span>
           )}
         </div>
         <button type="submit" disabled={!isEditing}>
