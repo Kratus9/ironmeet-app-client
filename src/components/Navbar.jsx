@@ -9,7 +9,7 @@ function Navbar() {
 
 
   return (
-    <div>
+    <div className="navbar navbar-bottom">
       {isUserActive === true ? (
         <>
           
