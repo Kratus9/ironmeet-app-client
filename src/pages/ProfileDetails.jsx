@@ -1,9 +1,8 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import service from "../services/service.config";
 
 function ProfileDetails() {
-  const navigate = useNavigate();
   const { userId } = useParams();
 
   const [userData, setUserData] = useState({

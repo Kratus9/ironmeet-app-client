@@ -15,9 +15,9 @@ function Matches() {
         setMatches(response.data);
       } catch (error) {
         setError(
-          "Error al obtener los matches. Por favor, inténtalo de nuevo más tarde."
+          "Error getting matches. Try again later..."
         );
-        console.error("Error al obtener los matches:", error);
+        console.error("Error getting matches:", error);
       }
     };
 
