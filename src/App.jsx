@@ -75,7 +75,7 @@ function App() {
           }
         />
         <Route
-          path="/events/create"
+          path="/events/new-event"
           element={
             <IsPrivate>
               <EventCreate />
