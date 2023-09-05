@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import service from "../services/service.config";
 import TinderCard from "react-tinder-card";
+import { Link } from "react-router-dom";
+import { FaInfoCircle } from "react-icons/fa";
 
 function Swipe() {
   const [users, setUsers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    
     const fetchUsers = async () => {
       try {
         const response = await service.get("user/swipe");
@@ -37,10 +38,8 @@ function Swipe() {
       let action;
       if (direction === "right") {
         action = "like";
-        
       } else {
         action = "dislike";
-        
       }
       const response = await service.post(
         `user/swipe/${userToSwipe._id}/${action}`
@@ -74,7 +73,15 @@ function Swipe() {
                 style={{ backgroundImage: `url(${users[currentIndex].image})` }}
                 className="card"
               >
-                <h3>{users[currentIndex].name}</h3>
+                <div>
+                  <h3>{users[currentIndex].name}</h3>
+                  <Link
+                    to={`/user/${users[currentIndex]._id}/profile`}
+                    className="info-icon-link"
+                  >
+                    <FaInfoCircle className="info-icon" />
+                  </Link>
+                </div>
               </div>
             </TinderCard>
           ) : (

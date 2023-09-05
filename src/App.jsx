@@ -7,7 +7,7 @@ import Profile from "./pages/Profile";
 import Message from "./pages/Message";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import ProfileEdit from "./pages/ProfileEdit";
+import ProfileDetails from "./pages/ProfileDetails";
 import EventDetails from "./pages/EventDetails";
 import EventEdit from "./pages/EventEdit";
 import EventCreate from "./pages/EventCreate";
@@ -43,10 +43,10 @@ function App() {
           }
         />
         <Route
-          path="/profile/edit"
+          path="/user/:userId/profile"
           element={
             <IsPrivate>
-              <ProfileEdit />
+              <ProfileDetails />
             </IsPrivate>
           }
         />
