@@ -59,7 +59,7 @@ function App() {
           }
         />
         <Route
-          path="/events/:id/details"
+          path="/events/:eventId/details"
           element={
             <IsPrivate>
               <EventDetails />
@@ -67,7 +67,7 @@ function App() {
           }
         />
         <Route
-          path="/events/:id/edit"
+          path="/events/:eventId/edit"
           element={
             <IsPrivate>
               <EventEdit />
