@@ -112,17 +112,9 @@ function Profile() {
   const handleLogout = () => {
     localStorage.removeItem("authToken");
 
-    verifyToken(); // verificar un token que no existe para reiniciar los estados
+    verifyToken();
 
     navigate("/login");
-  };
-
-  // const handleEdit = () => {
-  //   navigate("/profile/edit");
-  // };
-
-  const handleDelete = () => {
-
   };
   
   return (
@@ -262,9 +254,6 @@ function Profile() {
         </button>
         <button type="button" onClick={() => setIsEditing(!isEditing)}>
           {isEditing ? "Cancel" : "Edit"}
-        </button>
-        <button type="submit" onClick={handleDelete}>
-          Delete
         </button>
       </form>
     </div>
