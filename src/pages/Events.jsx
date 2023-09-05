@@ -24,7 +24,7 @@ function Events() {
         {events.map((event) => (
           <li key={event._id}>
             <h3>{event.title}</h3>
-            <img src={event.image}  alt={event.name} />
+            <img src={event.image}  alt={event.title} />
             <p>{event.location}</p>
           </li>
         ))}
