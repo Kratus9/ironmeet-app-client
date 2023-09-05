@@ -14,6 +14,7 @@ function ProfileDetails() {
     gender: "",
     preferences: "",
     description: "",
+    image: "",
   });
 
   useEffect(() => {
@@ -31,7 +32,7 @@ function ProfileDetails() {
   return (
     <div>
       <h2>{userData.name}</h2>
-
+      <img src={userData.image} alt={userData.name} width={100} />
       <div>
         <label>Age:</label>
         <span>{userData.age}</span>

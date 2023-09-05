@@ -17,10 +17,11 @@ function Profile() {
     gender: "",
     preferences: "",
     description: "",
+    image: "",
   });
 
   const [isEditing, setIsEditing] = useState(false);
-  
+
   const gender = ["Male", "Female", "Other"];
   const preferences = ["Male", "Female", "Other"];
   const locations = [
@@ -76,11 +77,11 @@ function Profile() {
     "Zaragoza",
   ];
 
-
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
         const response = await service.get("/user/profile");
+        console.log("Response from server:", response.data)
         setUserData(response.data);
       } catch (error) {
         console.log(error);
@@ -91,6 +92,7 @@ function Profile() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(`Field "${name}" changed to "${value}"`)
     setUserData({
       ...userData,
       [name]: value,
@@ -102,6 +104,7 @@ function Profile() {
 
     try {
       await service.patch("/user/profile/update", userData);
+      console.log("Profile updated successfully")
 
       setIsEditing(false);
     } catch (error) {
@@ -116,13 +119,22 @@ function Profile() {
 
     navigate("/login");
   };
+
   
+
   return (
     <div>
       <button onClick={handleLogout}>Log Out</button>
       <h2>Profile</h2>
       <form onSubmit={handleSubmit}>
         <div>
+          {isEditing ? (
+            console.log("Image URL:", userData.image),
+            <img src={userData.image} alt={userData.name} width={100} />
+          ) : (
+            
+            <img src={userData.image} alt={userData.name} width={100} />
+          )}
           <label>Name:</label>
           {isEditing ? (
             <input
