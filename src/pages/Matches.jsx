@@ -1,27 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import service from '../services/service.config';
 import { Link } from "react-router-dom";
+import { AuthContext } from '../context/auth.context'
 
 function Matches() {
+  const { activeUserId } = useContext(AuthContext);
   const [matches, setMatches] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchMatches = async () => {
       try {
-        
         const response = await service.get('/user/matches');
-
-        // Actualiza el estado con la lista de matches.
         setMatches(response.data);
       } catch (error) {
-        // Maneja el error y almacena el mensaje en el estado de error.
         setError('Error al obtener los matches. Por favor, inténtalo de nuevo más tarde.');
         console.error('Error al obtener los matches:', error);
       }
     };
 
-    // Llama a la función para obtener los matches cuando se monta el componente.
     fetchMatches();
   }, []); 
 
@@ -31,14 +28,13 @@ function Matches() {
         <div
           key={index}
           className="match-card"
-          
         >
           <div className="img-container">
             <img src={match.image}  alt={match.name + " profile"} />
           </div>
           <div className='chat-container'>
-          <h3>{match.name}</h3>
-          <Link to={`/matches/${match._id}`}>Catch up!</Link>
+            <h3>{match.name}</h3>
+            <Link to={`/messages/${activeUserId}/${match._id}`}>Catch up!</Link>
           </div>
         </div>
       ))}

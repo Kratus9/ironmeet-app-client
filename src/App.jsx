@@ -99,7 +99,7 @@ function App() {
           }
         />
         <Route
-          path="/matches/:messageid"
+          path="/messages/:senderId/:receiverId"
           element={
             <IsPrivate>
               <Message />

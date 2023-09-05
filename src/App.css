@@ -115,3 +115,10 @@ html, body {
   justify-content: space-between;
   width: 70%;
 }
+
+.chat-display,
+.matches-display {
+    padding: 20px;
+    height: 60vh;
+    overflow-y: auto;
+}
