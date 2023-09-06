@@ -381,7 +381,7 @@ top: 35%;
 /** ANIMATIONS **/
 
 .rotor-x {
-  transform: rotateX(-5deg) scale(0.5);
+  transform: rotateX(-10deg) scale(0.5);
 
 }
 .rotor-y {
