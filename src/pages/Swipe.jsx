@@ -101,7 +101,7 @@ function Swipe() {
                   
                   <h3 className="user-name" >{users[currentIndex].name} <span>{users[currentIndex].age}</span></h3>
                   <div className="location">
-                  <img src="src/assets/location-icon.jpg" width={28} alt="location" />
+                  <img src="src/assets/location-icon.jpg"  width={28} alt="location" />
                   <span>{users[currentIndex].location}</span>
                   </div>
                   
