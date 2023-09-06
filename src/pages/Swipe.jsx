@@ -3,10 +3,13 @@ import service from "../services/service.config";
 import TinderCard from "react-tinder-card";
 import { Link } from "react-router-dom";
 import { FaInfoCircle } from "react-icons/fa";
+import confetti from "canvas-confetti";
 
 function Swipe() {
   const [users, setUsers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [matched, setMatched] = useState(false);
+  const [showMatchStamp, setShowMatchStamp] = useState(false);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -28,6 +31,21 @@ function Swipe() {
     fetchUsers();
   }, []);
 
+  useEffect(() => {
+    if (users.length > 0 && currentIndex < users.length) {
+      if (matched) {
+        setShowMatchStamp(true);
+
+        setTimeout(() => {
+          setShowMatchStamp(false);
+        }, 1000);
+        confetti()
+      } else {
+        setShowMatchStamp(false);
+      }
+    }
+  }, [users, currentIndex, matched]);
+
   const handleSwipe = (direction) => async () => {
     console.log("Starting handleSwipe with direction:", direction);
 
@@ -48,13 +66,18 @@ function Swipe() {
 
       if (response.status === 200) {
         console.log("New users data:", response.data);
-        setUsers(response.data);
+
+        if (response.data.message === "Matched!") {
+          setMatched(true);
+        } else {
+          setMatched(false);
+        }
         setCurrentIndex(currentIndex + 1);
       } else {
-        console.error(`Error al dar ${action}`);
+        console.error(`Error ${action} `);
       }
     } catch (error) {
-      console.error("Error de red:", error);
+      console.error("Network:", error);
     }
   };
 
@@ -81,13 +104,14 @@ function Swipe() {
                   >
                     <FaInfoCircle className="info-icon" />
                   </Link>
+                  {showMatchStamp && <div className="match-stamp">MATCH</div>}
                 </div>
               </div>
             </TinderCard>
           ) : (
             <div className="swipe-info-container">
               <div className="swipe-info">
-                <p>No more users to swipe</p>
+                {matched ? <p>MATCH</p> : <p>No more users to swipe</p>}
               </div>
             </div>
           )}
