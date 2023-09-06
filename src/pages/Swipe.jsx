@@ -96,15 +96,23 @@ function Swipe() {
                 style={{ backgroundImage: `url(${users[currentIndex].image})` }}
                 className="card"
               >
-                <div>
-                  <h3>{users[currentIndex].name}</h3>
+                {showMatchStamp && <div className="match-stamp">MATCH</div>}
+                <div className="user-info">
+                  
+                  <h3 className="user-name" >{users[currentIndex].name} <span>{users[currentIndex].age}</span></h3>
+                  <div className="location">
+                  <img src="src/assets/location-icon.jpg" width={28} alt="location" />
+                  <span>{users[currentIndex].location}</span>
+                  </div>
+                  
+                  
                   <Link
                     to={`/user/${users[currentIndex]._id}/profile`}
                     className="info-icon-link"
                   >
                     <FaInfoCircle className="info-icon" />
                   </Link>
-                  {showMatchStamp && <div className="match-stamp">MATCH</div>}
+                  
                 </div>
               </div>
             </TinderCard>
