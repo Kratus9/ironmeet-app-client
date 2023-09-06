@@ -48,11 +48,11 @@ function Login() {
   };
 
   return (
-    <div className="login-form-container">
+    <div>
       <h1>Log In</h1>
       <div className="form-margin" >
       <form onSubmit={handleLogin}>
-        <div className="form-floating mb-3">
+        <div class="form-floating mb-3">
         <input
           type="username"
           name="username"

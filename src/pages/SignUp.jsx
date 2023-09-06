@@ -130,10 +130,10 @@ const SignUp = () => {
   const preferences = ["Male", "Female", "Other"];
 
   return (
-    <div className="">
+    <div className="p-3 signup-container">
       <h1>Signup</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <div className="form-floating mb-3">
+        <div className="form-floating mb-1">
           <input
             type="text"
             name="name"
@@ -146,7 +146,7 @@ const SignUp = () => {
           />
           <label for="floatingInput">Name:</label>
         </div>
-        <div className="form-floating mb-3">
+        <div className="form-floating mb-1">
           <input
             type="text"
             name="username"
@@ -159,7 +159,7 @@ const SignUp = () => {
           />
           <label for="floatingInput">Username:</label>
         </div>
-        <div className="form-floating mb-3">
+        <div className="form-floating mb-1">
           <input
             type="email"
             name="email"
@@ -172,7 +172,7 @@ const SignUp = () => {
           />
           <label for="floatingInput">Email:</label>
         </div>
-        <div className="form-floating mb-3">
+        <div className="form-floating mb-1">
           <input
             type="password"
             name="password"
@@ -185,7 +185,7 @@ const SignUp = () => {
           />
           <label for="floatingInput">Password:</label>
         </div>
-        <div className="form-floating mb-3">
+        <div className="form-floating mb-1">
           <input
             type="password"
             name="repeatPassword"
@@ -198,7 +198,7 @@ const SignUp = () => {
           />
           <label for="floatingInput">Repeat Password:</label>
         </div>
-        <div className="form-floating mb-3">
+        <div className="form-floating mb-1">
           <input
             type="text"
             name="age"
@@ -211,7 +211,7 @@ const SignUp = () => {
           />
           <label for="floatingInput">Age:</label>
         </div>
-        <div className="form-floating">
+        <div className="form-floating mb-1">
           <select
             name="gender"
             value={formData.gender}
@@ -219,7 +219,7 @@ const SignUp = () => {
             required
             className="form-select"
             id="floatingSelect"
-            aria-label="Floating label select example"
+            aria-label="Floating label select"
           >
             <option value="">Select gender</option>
             {gender.map((gender, index) => (
@@ -230,7 +230,7 @@ const SignUp = () => {
           </select>
           <label for="floatingSelect">Gender:</label>
         </div>
-        <div className="form-floating">
+        <div className="form-floating mb-1">
           <select
             name="preferences"
             value={formData.preferences}
@@ -238,7 +238,7 @@ const SignUp = () => {
             required
             className="form-select"
             id="floatingSelect"
-            aria-label="Floating label select example"
+            aria-label="Floating label select"
           >
             <option value="">Select preferences</option>
             {preferences.map((preferences, index) => (
@@ -257,7 +257,7 @@ const SignUp = () => {
             required
             className="form-select"
             id="floatingSelect"
-            aria-label="Floating label select example"
+            aria-label="Floating label select"
           >
             <option value="">Select location</option>
             {locations.map((location, index) => (
