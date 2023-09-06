@@ -28,9 +28,6 @@ html, body {
   font-family: 'Readex Pro', sans-serif;
 }
 
-
-
-
 .navbar.navbar-bottom {
   position: fixed;
   bottom: 0;
@@ -78,8 +75,6 @@ html, body {
   position: absolute;
 }
 
-
-
 .card {
   width: auto;
   height: 710px;
@@ -97,10 +92,7 @@ html, body {
 .swipe-info-container{
   display: flex;
   text-align: center;
-
-  
 }
-
 
 .dashboard .swipe-info {
   padding: 10px;
@@ -183,10 +175,6 @@ html, body {
   opacity: 0.3;
 }
 
-
-
-
-
 .img-container {
   height: 100px;
   width: 100px;
@@ -231,8 +219,6 @@ html, body {
   background-color: white; 
 }
 
-
-
 .message-container {
 position: absolute;
 top: 35%;
@@ -240,9 +226,7 @@ top: 35%;
   text-align: center;
 }
 
-
 /* Animated Diamond */
-
 .wrap {
   position: absolute;
   width: 0;
@@ -253,6 +237,7 @@ top: 35%;
   transform-style: preserve-3d;
   overflow: visible;
 }
+
 .triangle {
   position: absolute;
   left: -100px;
@@ -269,41 +254,49 @@ top: 35%;
 .triangle.bottom {
   transform-origin: 50% 0;
 }
+
 .triangle.bottom.face-1 {
   animation-delay: -2.5s;
   transform: translateY(90px) rotateY(0) rotateX(35deg) scaleX(0.24)
     scaleY(-1);
 }
+
 .triangle.bottom.face-2 {
   animation-delay: -3.5s;
   transform: translateY(90px) rotateY(45deg) rotateX(35deg) scaleX(0.24)
     scaleY(-1);
 }
+
 .triangle.bottom.face-3 {
   animation-delay: -4.5s;
   transform: translateY(90px) rotateY(90deg) rotateX(35deg) scaleX(0.24)
     scaleY(-1);
 }
+
 .triangle.bottom.face-4 {
   animation-delay: -5.5s;
   transform: translateY(90px) rotateY(135deg) rotateX(35deg) scaleX(0.24)
     scaleY(-1);
 }
+
 .triangle.bottom.face-5 {
   animation-delay: -6.5s;
   transform: translateY(90px) rotateY(180deg) rotateX(35deg) scaleX(0.24)
     scaleY(-1);
 }
+
 .triangle.bottom.face-6 {
   animation-delay: -7.5s;
   transform: translateY(90px) rotateY(225deg) rotateX(35deg) scaleX(0.24)
     scaleY(-1);
 }
+
 .triangle.bottom.face-7 {
   animation-delay: -8.5s;
   transform: translateY(90px) rotateY(270deg) rotateX(35deg) scaleX(0.24)
     scaleY(-1);
 }
+
 .triangle.bottom.face-8 {
   animation-delay: -9.5s;
   transform: translateY(90px) rotateY(315deg) rotateX(35deg) scaleX(0.24)
