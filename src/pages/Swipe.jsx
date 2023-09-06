@@ -111,7 +111,7 @@ function Swipe() {
           ) : (
             <div className="swipe-info-container">
               <div className="swipe-info">
-                {matched ? <p>MATCH</p> : <p>No more users to swipe</p>}
+                <p>No more users to swipe</p>
               </div>
             </div>
           )}
