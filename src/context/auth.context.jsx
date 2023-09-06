@@ -1,62 +1,58 @@
 import { createContext, useEffect, useState } from "react";
-import service from "../services/service.config"
+import service from "../services/service.config";
 
-
-const AuthContext = createContext()
+const AuthContext = createContext();
 
 function AuthWrapper(props) {
-
-  const [ isUserActive, setIsUserActive ] = useState(false)
-  const [ activeUserId, setActiveUserId ] = useState(null)
-  const [ isPageLoading, setIsPageLoading ] = useState(true)
+  const [isUserActive, setIsUserActive] = useState(false);
+  const [activeUserId, setActiveUserId] = useState(null);
+  const [isPageLoading, setIsPageLoading] = useState(true);
   const [userRole, setUserRole] = useState(null);
 
   useEffect(() => {
-    verifyToken()
-  }, [])
+    verifyToken();
+  }, []);
 
   const verifyToken = async () => {
-    
-    setIsPageLoading(true)
+    setIsPageLoading(true);
 
     try {
-      
-      const response = await service.get("/auth/verify")
-      console.log(response)
+      const response = await service.get("/auth/verify");
+      console.log(response);
 
-      setIsUserActive(true)
-      setActiveUserId(response.data._id)
+      setIsUserActive(true);
+      setActiveUserId(response.data._id);
       setUserRole(response.data.role);
-      setIsPageLoading(false)
-
+      setIsPageLoading(false);
     } catch (error) {
-      console.log(error)
-      setIsUserActive(false)
-      setActiveUserId(null)
-      setIsPageLoading(false)
+      console.log(error);
+      setIsUserActive(false);
+      setActiveUserId(null);
+      setIsPageLoading(false);
     }
-  }
+  };
 
   const passedContext = {
     verifyToken,
     isUserActive,
     activeUserId,
     userRole,
-  }
-
+  };
 
   if (isPageLoading === true) {
-    return <h3>... Validando credenciales</h3>
+    return (
+      <div>
+        <div class="back"></div>
+        <div class="heart"></div>
+      </div>
+    );
   }
 
   return (
     <AuthContext.Provider value={passedContext}>
       {props.children}
     </AuthContext.Provider>
-  )
+  );
 }
 
-export {
-  AuthContext,
-  AuthWrapper
-}
+export { AuthContext, AuthWrapper };
