@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700;800&display=swap');
 .logo {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -4px;
+  left: 27.5vw;
   display: flex;
   align-items: center;
   padding-top: 8px;
@@ -77,11 +77,12 @@ html, body {
 
 .card {
   width: auto;
-  height: 650px;
-  border-radius: 30px;
+  height: 710px;
+  border-radius: 18px;
   background-size: cover;
-  background-position: center;
   margin: 0 auto;
+  margin: 2.5px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4); /* Ajusta los valores según tus preferencias */
 }
 
 .card h3 {
@@ -98,7 +99,55 @@ html, body {
 }
 
 .tinder-card {
-  width: 100vw
+  width: 100vw;
+  margin-top: 3px;
+}
+
+.user-info {
+  position: absolute;
+  bottom: 100px;
+  left: 15px;
+  display: flex;
+  justify-content: space-around;
+  gap: 200px;
+  align-items: center;
+  width: calc(100% - 20px); 
+}
+
+.user-name {
+  font-size: 35px;
+  color: whitesmoke;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.user-name>span{
+  font-size: 26px;
+  font-weight: 300;
+}
+
+
+.location{
+  position: absolute;
+  display: flex;
+  color: whitesmoke;
+  left: 0;
+  bottom: -20px;
+}
+.info-icon-link {
+  text-decoration: none;
+}
+
+.info-icon {
+  margin-top: 14px;
+  font-size: 24px; /* Ajusta el tamaño de fuente según tu preferencia */
+  color: #333; /* Cambia el color según tu preferencia */
+}
+
+.info-display {
+  display: flex;
+ align-items: center;
 }
 
 .matches-display {
@@ -516,4 +565,33 @@ top: 35%;
       transform: scale(0.6) rotate(-45deg);
     }
   }
-  
+
+/* MATCH */
+
+.match-stamp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+  color: #ff66b2;
+  font-size: 32px;
+  padding: 12px 24px;
+  border: 4px solid #ff66b2;
+  border-radius: 15px;
+  z-index: 999;
+  animation: fadeOut 3s ease-in-out;
+
+  /* Rubber Stamp Effect */
+  background: transparent;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
