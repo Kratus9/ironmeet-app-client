@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
 function Likes() {
-  const { activeUserId } = useContext(AuthContext);
+  const { activeUserId, userRole } = useContext(AuthContext);
   const [likes, setLikes] = useState([]);
   const [error, setError] = useState(null);
 
@@ -45,8 +45,13 @@ function Likes() {
 
   return (
     <div className="matches-display">
+            {userRole === "user" && (
+        <div className="diamond-member-message">
+          <h3>Become a Diamond Member to discover who liked you! <br /> <span>💎</span></h3>
+        </div>
+      )}
       {likes.map((like, index) => (
-        <div key={index} className="match-card">
+        <div key={index} className={`match-card ${userRole !== "diamondMember" ? "blur" : ""}`}>
           <Link to={`/user/${like._id}/profile`}>
             <div className="img-container">
               <img src={like.image} alt={like.name} />

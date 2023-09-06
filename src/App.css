@@ -109,6 +109,14 @@ html, body {
   
 }
 
+.match-card.blur {
+  filter: blur(7px);
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+
+
 
 
 .img-container {

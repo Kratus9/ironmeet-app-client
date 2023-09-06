@@ -9,6 +9,7 @@ function AuthWrapper(props) {
   const [ isUserActive, setIsUserActive ] = useState(false)
   const [ activeUserId, setActiveUserId ] = useState(null)
   const [ isPageLoading, setIsPageLoading ] = useState(true)
+  const [userRole, setUserRole] = useState(null);
 
   useEffect(() => {
     verifyToken()
@@ -25,6 +26,7 @@ function AuthWrapper(props) {
 
       setIsUserActive(true)
       setActiveUserId(response.data._id)
+      setUserRole(response.data.role);
       setIsPageLoading(false)
 
     } catch (error) {
@@ -38,7 +40,8 @@ function AuthWrapper(props) {
   const passedContext = {
     verifyToken,
     isUserActive,
-    activeUserId 
+    activeUserId,
+    userRole,
   }
 
 
