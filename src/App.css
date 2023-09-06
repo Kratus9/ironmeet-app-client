@@ -109,6 +109,14 @@ html, body {
   
 }
 
+.match-card.blur {
+  filter: blur(7px);
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+
+
 
 
 .img-container {
@@ -153,4 +161,276 @@ html, body {
   height: calc(100vh - 40px);
   overflow-y: auto;
   background-color: white; 
+}
+
+
+
+.message-container {
+position: absolute;
+top: 35%;
+  justify-content: center;
+  text-align: center;
+}
+
+
+/* Animated Diamond */
+
+.wrap {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  transform-style: preserve-3d;
+  overflow: visible;
+}
+.triangle {
+  position: absolute;
+  left: -100px;
+  top: -30px;
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 100px solid #33afff;
+  animation: lighting 12s infinite linear;
+}
+
+/** Bottom Down **/
+.triangle.bottom {
+  transform-origin: 50% 0;
+}
+.triangle.bottom.face-1 {
+  animation-delay: -2.5s;
+  transform: translateY(90px) rotateY(0) rotateX(35deg) scaleX(0.24)
+    scaleY(-1);
+}
+.triangle.bottom.face-2 {
+  animation-delay: -3.5s;
+  transform: translateY(90px) rotateY(45deg) rotateX(35deg) scaleX(0.24)
+    scaleY(-1);
+}
+.triangle.bottom.face-3 {
+  animation-delay: -4.5s;
+  transform: translateY(90px) rotateY(90deg) rotateX(35deg) scaleX(0.24)
+    scaleY(-1);
+}
+.triangle.bottom.face-4 {
+  animation-delay: -5.5s;
+  transform: translateY(90px) rotateY(135deg) rotateX(35deg) scaleX(0.24)
+    scaleY(-1);
+}
+.triangle.bottom.face-5 {
+  animation-delay: -6.5s;
+  transform: translateY(90px) rotateY(180deg) rotateX(35deg) scaleX(0.24)
+    scaleY(-1);
+}
+.triangle.bottom.face-6 {
+  animation-delay: -7.5s;
+  transform: translateY(90px) rotateY(225deg) rotateX(35deg) scaleX(0.24)
+    scaleY(-1);
+}
+.triangle.bottom.face-7 {
+  animation-delay: -8.5s;
+  transform: translateY(90px) rotateY(270deg) rotateX(35deg) scaleX(0.24)
+    scaleY(-1);
+}
+.triangle.bottom.face-8 {
+  animation-delay: -9.5s;
+  transform: translateY(90px) rotateY(315deg) rotateX(35deg) scaleX(0.24)
+    scaleY(-1);
+}
+
+/** Middle Down **/
+.triangle.middle-bottom {
+  transform-origin: 50% 0;
+}
+.triangle.middle-bottom.face-1 {
+  animation-delay: -3.5s;
+  transform: rotateY(0deg) translateY(-11px) translateZ(-34px) rotateX(-50deg)
+    scaleX(0.24) scaleY(0.3);
+}
+.triangle.middle-bottom.face-2 {
+  animation-delay: -4.5s;
+  transform: rotateY(45deg) translateY(-11px) translateZ(-34px) rotateX(-50deg)
+    scaleX(0.24) scaleY(0.3);
+}
+.triangle.middle-bottom.face-3 {
+  animation-delay: -5.5s;
+  transform: rotateY(90deg) translateY(-11px) translateZ(-34px) rotateX(-50deg)
+    scaleX(0.24) scaleY(0.3);
+}
+.triangle.middle-bottom.face-4 {
+  animation-delay: -6.5s;
+  transform: rotateY(135deg) translateY(-11px) translateZ(-34px) rotateX(-50deg)
+    scaleX(0.24) scaleY(0.3);
+}
+.triangle.middle-bottom.face-5 {
+  animation-delay: -7.5s;
+  transform: rotateY(180deg) translateY(-11px) translateZ(-34px) rotateX(-50deg)
+    scaleX(0.24) scaleY(0.3);
+}
+.triangle.middle-bottom.face-6 {
+  animation-delay: -8.5s;
+  transform: rotateY(225deg) translateY(-11px) translateZ(-34px) rotateX(-50deg)
+    scaleX(0.24) scaleY(0.3);
+}
+.triangle.middle-bottom.face-7 {
+  animation-delay: -9.5s;
+  transform: rotateY(270deg) translateY(-11px) translateZ(-34px) rotateX(-50deg)
+    scaleX(0.24) scaleY(0.3);
+}
+.triangle.middle-bottom.face-8 {
+  animation-delay: -10.5s;
+  transform: rotateY(315deg) translateY(-11px) translateZ(-34px) rotateX(-50deg)
+    scaleX(0.24) scaleY(0.3);
+}
+
+/** Middle Up **/
+.triangle.middle-top {
+  transform-origin: 50% 100%;
+}
+.triangle.middle-top.face-1 {
+  animation-delay: -2.5s;
+  transform: rotateY(22.5deg) translateY(-111px) translateZ(-31px)
+    rotateX(-58deg) scaleX(0.13) scaleY(-0.36);
+}
+.triangle.middle-top.face-2 {
+  animation-delay: -3.5s;
+  transform: rotateY(67.5deg) translateY(-111px) translateZ(-31px)
+    rotateX(-58deg) scaleX(0.13) scaleY(-0.36);
+}
+.triangle.middle-top.face-3 {
+  animation-delay: -4.5s;
+  transform: rotateY(112.5deg) translateY(-111px) translateZ(-31px)
+    rotateX(-58deg) scaleX(0.13) scaleY(-0.36);
+}
+.triangle.middle-top.face-4 {
+  animation-delay: -5.5s;
+  transform: rotateY(157.5deg) translateY(-111px) translateZ(-31px)
+    rotateX(-58deg) scaleX(0.13) scaleY(-0.36);
+}
+.triangle.middle-top.face-5 {
+  animation-delay: -6.5s;
+  transform: rotateY(202.5deg) translateY(-111px) translateZ(-31px)
+    rotateX(-58deg) scaleX(0.13) scaleY(-0.36);
+}
+.triangle.middle-top.face-6 {
+  animation-delay: -7.5s;
+  transform: rotateY(247.5deg) translateY(-111px) translateZ(-31px)
+    rotateX(-58deg) scaleX(0.13) scaleY(-0.36);
+}
+.triangle.middle-top.face-7 {
+  animation-delay: -8.5s;
+  transform: rotateY(292.5deg) translateY(-111px) translateZ(-31px)
+    rotateX(-58deg) scaleX(0.13) scaleY(-0.36);
+}
+.triangle.middle-top.face-8 {
+  animation-delay: -9.5s;
+  transform: rotateY(337.5deg) translateY(-111px) translateZ(-31px)
+    rotateX(-58deg) scaleX(0.13) scaleY(-0.36);
+}
+
+/** Top Up **/
+.triangle.up {
+  animation: lighting-lighter 12s infinite linear;
+  transform-origin: 50% 0;
+}
+.triangle.up.face-1 {
+  animation-delay: -3.5s;
+  transform: rotateY(22.5deg) translateY(-22px) translateZ(0px) rotateX(-70deg)
+    scaleX(0.13) scaleY(0.33);
+}
+.triangle.up.face-2 {
+  animation-delay: -4.5s;
+  transform: rotateY(67.5deg) translateY(-22px) translateZ(0px) rotateX(-70deg)
+    scaleX(0.13) scaleY(0.33);
+}
+.triangle.up.face-3 {
+  animation-delay: -5.5s;
+  transform: rotateY(112.5deg) translateY(-22px) translateZ(0px) rotateX(-70deg)
+    scaleX(0.13) scaleY(0.33);
+}
+.triangle.up.face-4 {
+  animation-delay: -6.5s;
+  transform: rotateY(157.5deg) translateY(-22px) translateZ(0px) rotateX(-70deg)
+    scaleX(0.13) scaleY(0.33);
+}
+.triangle.up.face-5 {
+  animation-delay: -7.5s;
+  transform: rotateY(202.5deg) translateY(-22px) translateZ(0px) rotateX(-70deg)
+    scaleX(0.13) scaleY(0.33);
+}
+.triangle.up.face-6 {
+  animation-delay: -8.5s;
+  transform: rotateY(247.5deg) translateY(-22px) translateZ(0px) rotateX(-70deg)
+    scaleX(0.13) scaleY(0.33);
+}
+.triangle.up.face-7 {
+  animation-delay: -9.5s;
+  transform: rotateY(292.5deg) translateY(-22px) translateZ(0px) rotateX(-70deg)
+    scaleX(0.13) scaleY(0.33);
+}
+.triangle.up.face-8 {
+  animation-delay: -10.5s;
+  transform: rotateY(337.5deg) translateY(-22px) translateZ(0px) rotateX(-70deg)
+    scaleX(0.13) scaleY(0.33);
+}
+
+/** ANIMATIONS **/
+
+.rotor-x {
+  transform: rotateX(-10deg) scale(0.5);
+
+}
+.rotor-y {
+  animation: spinY 3s infinite linear;
+}
+
+@keyframes spinX {
+  0% {
+    transform: rotateX(0);
+  }
+  to {
+    transform: rotateX(1turn);
+  }
+}
+@keyframes spinY {
+  0% {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(1turn);
+  }
+}
+@keyframes spinZ {
+  0% {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(1turn);
+  }
+}
+@keyframes lighting {
+  0% {
+    border-bottom-color: #33afff;
+  }
+  50% {
+    border-bottom-color: #bbe8ff;
+  }
+  to {
+    border-bottom-color: #33afff;
+  }
+}
+@keyframes lighting-lighter {
+  0% {
+    border-bottom-color: #72c8ff;
+  }
+  50% {
+    border-bottom-color: #99eaff;
+  }
+  to {
+    border-bottom-color: #72c8ff;
+  }
 }
