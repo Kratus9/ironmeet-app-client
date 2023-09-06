@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700;800&display=swap");
 .logo {
   position: absolute;
   top: -3px;
@@ -15,17 +15,19 @@
 
 #root {
   width: 100vw;
+  background-color: #fdf1f6;
 }
 
-html, body {
+html,
+body {
   padding: 0;
   text-align: center;
   width: 100vw;
-  
+  background-color: #fdf1f6;
 }
 
 * {
-  font-family: 'Readex Pro', sans-serif;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .navbar.navbar-bottom {
@@ -37,7 +39,7 @@ html, body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #fff;
+  background-color: #fdf1f6;
   padding: 0;
   border-top: 1px solid #ccc;
 }
@@ -52,6 +54,45 @@ html, body {
   width: 100%;
   max-height: 40px;
   overflow-y: auto;
+}
+
+.login-btn {
+  background-color: #793398;
+  color: #fdf1f6;
+}
+.form-margin {
+  margin-top: 15px;
+}
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 45px;
+}
+.nav-not-logged-in {
+  color: #793398;
+}
+
+.login-form-container input {
+  background-color: #793398;
+  color: #fdf1f6;
+}
+
+.login-form-container label {
+  color: #fdf1f6;
+}
+
+
+.login-form-container>h1{
+  color: #793398;
+}
+
+
+.swipe-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .dashboard {
@@ -88,7 +129,7 @@ html, body {
   margin-top: 0;
 }
 
-.swipe-info-container{
+.swipe-info-container {
   display: flex;
   text-align: center;
 }
@@ -110,37 +151,46 @@ html, body {
   justify-content: space-around;
   gap: 200px;
   align-items: center;
-  width: calc(100% - 20px); 
+  width: calc(100% - 20px);
 }
 
 .user-name {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   display: block;
   font-size: 35px;
   color: whitesmoke;
+  text-shadow: 0.25px 0 #000000, -0.25px 0#000000, 0 0.25px #000000,
+    0 -0.25px #000000, 0.125px 0.125px #000000, -0.125px -0.125px #000000,
+    0.125px -0.125px #000000, -0.125px 0.125px #000000;
   font-weight: 500;
   margin-bottom: 10px;
   padding: 0;
-  margin-bottom: 5px;
+  padding-left: 5px;
+  margin-bottom: 10px;
 }
 
-.user-name>span{
+.user-name > span {
   font-size: 26px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
-
-.location{
+.location {
   position: absolute;
   display: flex;
   color: whitesmoke;
+  text-shadow: 0.25px 0 #000000, -0.25px 0#000000, 0 0.25px #000000,
+    0 -0.25px #000000, 0.125px 0.125px #000000, -0.125px -0.125px #000000,
+    0.125px -0.125px #000000, -0.125px 0.125px #000000;
   left: 0;
   gap: 2px;
   bottom: -20px;
+  font-size: 16px;
 }
+
+
 .info-icon-link {
+  margin-right: 10px;
   text-decoration: none;
 }
 
@@ -152,8 +202,38 @@ html, body {
 
 .info-display {
   display: flex;
- align-items: center;
+  align-items: center;
 }
+
+
+
+.like-button {
+  position: absolute;
+  bottom: 10px;
+  right: 90px;
+  background: none;
+  width: 80px;
+  height: 80px;
+}
+.like-button:hover {
+  opacity: 0.7; 
+  border: 2px solid rgb(19, 158, 19);
+  transform: scale(1.1)
+}
+.dislike-button {
+  position: absolute;
+  bottom: 10px;
+  left: 90px;
+  background: none;
+  width: 80px;
+  height: 80px;
+}
+.dislike-button:hover {
+  opacity: 0.7;
+  border: 2px solid rgb(255, 57, 57);
+  transform: scale(1.1)
+}
+
 
 .matches-display {
   margin-top: 40px;
@@ -164,6 +244,12 @@ html, body {
 }
 
 .match-card {
+  background-color: #f5f4f4;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -171,7 +257,12 @@ html, body {
   padding-top: 17px;
   padding-left: 20px;
   font-size: 15px;
-  
+}
+
+.match-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 
 .match-card.blur {
@@ -207,9 +298,8 @@ html, body {
   padding: 0;
 }
 
-
 .info-icon-link {
-  display: inline-block; 
+  display: inline-block;
 }
 
 .chat-display,
@@ -221,12 +311,12 @@ html, body {
   padding: 20px;
   height: calc(100vh - 40px);
   overflow-y: auto;
-  background-color: white; 
+  background-color: white;
 }
 
 .message-container {
-position: absolute;
-top: 35%;
+  position: absolute;
+  top: 35%;
   justify-content: center;
   text-align: center;
 }
@@ -262,8 +352,7 @@ top: 35%;
 
 .triangle.bottom.face-1 {
   animation-delay: -2.5s;
-  transform: translateY(90px) rotateY(0) rotateX(35deg) scaleX(0.24)
-    scaleY(-1);
+  transform: translateY(90px) rotateY(0) rotateX(35deg) scaleX(0.24) scaleY(-1);
 }
 
 .triangle.bottom.face-2 {
@@ -448,7 +537,6 @@ top: 35%;
 
 .rotor-x {
   transform: rotateX(-10deg) scale(0.5);
-
 }
 .rotor-y {
   animation: spinY 3s infinite linear;
@@ -503,73 +591,73 @@ top: 35%;
 
 /* Heart Loader */
 
-.center{
+.center {
   display: flex;
-} 
+}
 .back {
-    position: fixed;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    animation-name: backdiv;
-    animation-duration: 1s; 
-    animation-iteration-count: infinite;
-  }
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation-name: backdiv;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
 
-  .heart {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: pink;
-    height: 50px;
-    width: 50px;
-    transform: rotate(-45deg);
-    animation-name: beat;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-  }
-  .heart:after {
-    background-color: pink;
-    content: "";
-    border-radius: 50%;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    top: 0px;
-    left: 25px;
-  }
-  .heart:before {
-    background-color: pink;
-    content: "";
-    border-radius: 50%;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    top: -25px;
-    left: 0px;
-  }
+.heart {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: pink;
+  height: 50px;
+  width: 50px;
+  transform: rotate(-45deg);
+  animation-name: beat;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+.heart:after {
+  background-color: pink;
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0px;
+  left: 25px;
+}
+.heart:before {
+  background-color: pink;
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 0px;
+}
 
-  @keyframes backdiv {
-    50% {
-      background: #ffe6f2;
-    }
+@keyframes backdiv {
+  50% {
+    background: #ffe6f2;
   }
+}
 
-  @keyframes beat {
-    0% {
-      transform: scale(1) rotate(-45deg);
-    }
-    50% {
-      transform: scale(0.6) rotate(-45deg);
-    }
+@keyframes beat {
+  0% {
+    transform: scale(1) rotate(-45deg);
   }
+  50% {
+    transform: scale(0.6) rotate(-45deg);
+  }
+}
 
 /* MATCH */
 

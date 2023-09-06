@@ -39,7 +39,7 @@ function Swipe() {
         setTimeout(() => {
           setShowMatchStamp(false);
         }, 1000);
-        confetti()
+        confetti();
       } else {
         setShowMatchStamp(false);
       }
@@ -81,6 +81,35 @@ function Swipe() {
     }
   };
 
+  const handleAction = (action) => async () => {
+    console.log("Starting handleAction with action:", action);
+
+    const userToSwipe = users[currentIndex];
+    console.log("Swiping user:", userToSwipe);
+
+    try {
+      const response = await service.post(
+        `user/swipe/${userToSwipe._id}/${action}`
+      );
+      console.log("Response from swipe:", response);
+
+      if (response.status === 200) {
+        console.log("New users data:", response.data);
+
+        if (response.data.message === "Matched!") {
+          setMatched(true);
+        } else {
+          setMatched(false);
+        }
+        setCurrentIndex(currentIndex + 1);
+      } else {
+        console.error(`Error ${action} `);
+      }
+    } catch (error) {
+      console.error("Network:", error);
+    }
+  };
+
   return (
     <div className="dashboard">
       <div className="swipe-container">
@@ -98,21 +127,44 @@ function Swipe() {
               >
                 {showMatchStamp && <div className="match-stamp">MATCH</div>}
                 <div className="user-info">
-                  
-                  <h3 className="user-name" >{users[currentIndex].name} <span>{users[currentIndex].age}</span></h3>
+                  <h3 className="user-name">
+                    {users[currentIndex].name} <br />{" "}
+                    <span>{users[currentIndex].age}</span>
+                  </h3>
                   <div className="location">
-                  <img src="src/assets/location-icon.jpg"  width={28} alt="location" />
-                  <span>{users[currentIndex].location}</span>
+                    <img
+                      src="src/assets/location-icon.jpg"
+                      width={28}
+                      alt="location"
+                    />
+                    <span>{users[currentIndex].location}</span>
                   </div>
-                  
-                  
+
                   <Link
                     to={`/user/${users[currentIndex]._id}/profile`}
                     className="info-icon-link"
                   >
                     <FaInfoCircle className="info-icon" />
                   </Link>
-                  
+                </div>
+                <div className="black-background">
+                <button className="like-button" onClick={handleAction("like")}>
+                  <img
+                    width={58}
+                    src="src/assets/bggleJKGqirFChE (1).png"
+                    alt="like"
+                  />
+                </button>
+                <button
+                  className="dislike-button"
+                  onClick={handleAction("dislike")}
+                >
+                  <img
+                    width={55}
+                    src="src/assets/GaVLxTdLgqSuYiC.png"
+                    alt="dislike"
+                  />
+                </button>
                 </div>
               </div>
             </TinderCard>

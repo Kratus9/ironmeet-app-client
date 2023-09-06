@@ -48,10 +48,11 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="login-form-container">
       <h1>Log In</h1>
+      <div className="form-margin" >
       <form onSubmit={handleLogin}>
-        <div class="form-floating mb-3">
+        <div className="form-floating mb-3">
         <input
           type="username"
           name="username"
@@ -63,7 +64,7 @@ function Login() {
         </div>
 
         <br />
-        <div class="form-floating">
+        <div class="form-floating mb-3">
         <input
           type="password"
           name="password"
@@ -76,10 +77,11 @@ function Login() {
 
         <br />
 
-        <button type="submit">Login</button>
+        <button className="login-btn" type="submit">Login</button>
 
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
+      </div>
     </div>
   );
 }
