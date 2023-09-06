@@ -48,10 +48,10 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="p-3">
       <h1>Log In</h1>
       <form onSubmit={handleLogin}>
-        <div class="form-floating mb-3">
+        <div class="form-floating mb-0">
         <input
           type="username"
           name="username"
