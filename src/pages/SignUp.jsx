@@ -130,66 +130,96 @@ const SignUp = () => {
   const preferences = ["Male", "Female", "Other"];
 
   return (
-    <div>
-      <h2>Signup</h2>
+    <div className="">
+      <h1>Signup</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <div>
-          <label>Name:</label>
+        <div className="form-floating mb-3">
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
+            className="form-control"
+            id="floatingInput"
+            placeholder=""
           />
+          <label for="floatingInput">Name:</label>
         </div>
-        <div>
-          <label>Username:</label>
+        <div className="form-floating mb-3">
           <input
             type="text"
             name="username"
             value={formData.username}
             onChange={handleChange}
             required
+            className="form-control"
+            id="floatingInput"
+            placeholder=""
           />
+          <label for="floatingInput">Username:</label>
         </div>
-        <div>
-          <label>Email:</label>
+        <div className="form-floating mb-3">
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             required
+            className="form-control"
+            id="floatingInput"
+            placeholder=""
           />
+          <label for="floatingInput">Email:</label>
         </div>
-        <div>
-          <label>Password:</label>
+        <div className="form-floating mb-3">
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
+            className="form-control"
+            id="floatingInput"
+            placeholder=""
           />
+          <label for="floatingInput">Password:</label>
         </div>
-        <div>
-          <label>Repeat Password:</label>
+        <div className="form-floating mb-3">
           <input
             type="password"
             name="repeatPassword"
             value={formData.repeatPassword}
             onChange={handleChange}
             required
+            className="form-control"
+            id="floatingInput"
+            placeholder=""
           />
+          <label for="floatingInput">Repeat Password:</label>
         </div>
-        <div>
-          <label>Gender:</label>
+        <div className="form-floating mb-3">
+          <input
+            type="text"
+            name="age"
+            value={formData.age}
+            onChange={handleChange}
+            required
+            className="form-control"
+            id="floatingInput"
+            placeholder=""
+          />
+          <label for="floatingInput">Age:</label>
+        </div>
+        <div className="form-floating">
           <select
             name="gender"
             value={formData.gender}
             onChange={handleChange}
             required
+            className="form-select"
+            id="floatingSelect"
+            aria-label="Floating label select example"
           >
             <option value="">Select gender</option>
             {gender.map((gender, index) => (
@@ -198,14 +228,17 @@ const SignUp = () => {
               </option>
             ))}
           </select>
+          <label for="floatingSelect">Gender:</label>
         </div>
-        <div>
-          <label>Preferences:</label>
+        <div className="form-floating">
           <select
             name="preferences"
             value={formData.preferences}
             onChange={handleChange}
             required
+            className="form-select"
+            id="floatingSelect"
+            aria-label="Floating label select example"
           >
             <option value="">Select preferences</option>
             {preferences.map((preferences, index) => (
@@ -214,24 +247,17 @@ const SignUp = () => {
               </option>
             ))}
           </select>
+          <label for="floatingSelect">Preferences:</label>
         </div>
-        <div>
-          <label>Age:</label>
-          <input
-            type="text"
-            name="age"
-            value={formData.age}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Location:</label>
+        <div className="form-floating">
           <select
             name="location"
             value={formData.location}
             onChange={handleChange}
             required
+            className="form-select"
+            id="floatingSelect"
+            aria-label="Floating label select example"
           >
             <option value="">Select location</option>
             {locations.map((location, index) => (
@@ -240,6 +266,7 @@ const SignUp = () => {
               </option>
             ))}
           </select>
+          <label for="floatingSelect">Location:</label>
         </div>
         <div>
           <label>Image:</label>

@@ -50,25 +50,29 @@ function Login() {
   return (
     <div>
       <h1>Log In</h1>
-
       <form onSubmit={handleLogin}>
-        <label>Username:</label>
+        <div class="form-floating mb-3">
         <input
           type="username"
           name="username"
           value={username}
           onChange={handleUsernameChange}
+          class="form-control" id="floatingInput" placeholder=""
         />
+        <label for="floatingInput">Username:</label>
+        </div>
 
         <br />
-
-        <label>Password:</label>
+        <div class="form-floating">
         <input
           type="password"
           name="password"
           value={password}
           onChange={handlePasswordChange}
+          class="form-control" id="floatingPassword" placeholder="Password"
         />
+        <label for="floatingPassword">Password:</label>
+        </div>
 
         <br />
 
