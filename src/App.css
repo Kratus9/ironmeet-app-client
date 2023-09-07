@@ -135,6 +135,7 @@ body {
 .btn-profile {
   display: flex;
   justify-content: space-around;
+  background-color: #fdf1f6;
 }
 
 .logout-btn {
@@ -588,6 +589,7 @@ body {
 .message-input input {
   border: 1px solid grey;
   padding: 8px;
+  margin-bottom: 8px;
   flex: 1;
 }
 

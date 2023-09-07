@@ -3,10 +3,12 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import service from "../services/service.config";
 
+
 function Profile() {
   const navigate = useNavigate();
 
   const { verifyToken } = useContext(AuthContext);
+  
 
   const [userData, setUserData] = useState({
     name: "",
@@ -20,6 +22,7 @@ function Profile() {
     image: "",
   });
 
+  
   const [isEditing, setIsEditing] = useState(false);
 
   const gender = ["Male", "Female", "Other"];
@@ -99,12 +102,16 @@ function Profile() {
     });
   };
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       await service.patch("/user/profile/update", userData);
       console.log("Profile updated successfully");
+
+ 
 
       setIsEditing(false);
     } catch (error) {
@@ -177,7 +184,7 @@ function Profile() {
               name="email"
               value={userData.email}
               onChange={handleChange}
-              disabled={true} // Hacemos que el campo del email no se pueda editar
+              disabled={true}
             />
           ) : (
             <span>{userData.email}</span>
@@ -269,15 +276,19 @@ function Profile() {
             <span>{userData.description}</span>
           )}
         </div>
-        <div className="btn-profile">
-        <button type="submit" disabled={!isEditing}>
-          Save
-        </button>
-        <button type="button" onClick={() => setIsEditing(!isEditing)}>
-          {isEditing ? "Cancel" : "Edit"}
-        </button>
-        </div>
       </form>
+        <div className="btn-profile">
+        <a
+  type="submit"
+  onClick={() => setIsEditing(!isEditing)}
+  disabled={!isEditing}
+>
+  <img src="2639912_save_icon-removebg-preview.png" width={50} alt="save" />
+</a>
+        <a type="button" onClick={() => setIsEditing(!isEditing)}>
+          <img src="settings_563687-removebg-preview.png" width={50} alt="edit" />
+        </a>
+        </div>
         <button className="logout-btn" onClick={handleLogout}>Log Out</button>
     </div>
   );
