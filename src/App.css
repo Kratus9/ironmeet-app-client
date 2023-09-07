@@ -517,7 +517,7 @@ body {
   transition: transform 0.3s, box-shadow 0.3s;
   margin-bottom: 5px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 40px;
   padding-top: 17px;
@@ -532,6 +532,7 @@ body {
 .event-btn {
   background-color: #793398;
   color: #fdf1f6;
+  position: sticky;
 }
 
 .event-btn a {

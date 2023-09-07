@@ -168,7 +168,7 @@ function EventCreate() {
             />
           )}
         </div>
-        <button type="submit">Create Event</button>
+        <button className="event-btn" type="submit">Create Event</button>
       </form>
     </div>
   );
