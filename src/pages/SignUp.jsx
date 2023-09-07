@@ -139,8 +139,10 @@ const SignUp = () => {
         />
         <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
       </div>
-      <div className="p-3 signup-container">
+      <div className="signup-title">
         <h1>Signup</h1>
+      </div>
+      <div className="signup-form-container">
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <div className="form-floating mb-1">
             <input
@@ -268,23 +270,18 @@ const SignUp = () => {
             </select>
             <label htmlFor="location">Location:</label>
           </div>
-          <div>
-            <label>Image:</label>
+          <div className="">
+            <label className="imglabel">Profile Image:</label>
             <input
               type="file"
               name="image"
               accept="image/*"
               onChange={handleImageChange}
+              class="form-control form-control-sm" 
+              id="formFileSm"
             />
-            {imagePreview && (
-              <img
-                src={imagePreview}
-                alt="Preview"
-                style={{ maxWidth: "100px" }}
-              />
-            )}
           </div>
-          <button type="submit">Sign Up</button>
+          <button className="signup-btn" type="submit">Sign Up</button>
           {errorMessage ? <p>{errorMessage}</p> : null}
         </form>
       </div>
