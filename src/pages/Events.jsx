@@ -18,18 +18,19 @@ function Events() {
     fetchEvents();
   }, []);
 
-  
-
   return (
     <div>
       <div className="logo">
-        <img src="IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img
+          src="IronMeet logo-fotor-bg-remover-2023090792810.png"
+          alt="Logo"
+        />
         <img src="IRONMEET.PNG" alt="logo-slo" />
       </div>
-      <h2>Events</h2>
-      <ul>
+      <div className="event-container">
+        <h2>Events</h2>
         {events.map((event) => (
-          <div className="event-container" key={event._id}>
+          <div key={event._id}>
             <li>
               <h3>{event.title}</h3>
               <Link to={`/events/${event._id}/details`}>
@@ -41,14 +42,12 @@ function Events() {
             </li>
           </div>
         ))}
-      </ul>
-      <button className="event-btn">
-        <Link to={"/events/new-event"}>Create Event!</Link>
-      </button>
+        <button className="event-btn">
+          <Link to={"/events/new-event"}>Create Event!</Link>
+        </button>
+      </div>
     </div>
   );
 }
-
-
 
 export default Events;

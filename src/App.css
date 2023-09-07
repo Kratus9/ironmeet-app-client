@@ -316,6 +316,7 @@ body {
 }
 
 .matches-display {
+  background-color: #fdf1f6;
   margin-top: 40px;
   height: 60vh;
   overflow-y: auto;
@@ -391,7 +392,6 @@ body {
   padding: 20px;
   height: calc(100vh - 40px);
   overflow-y: auto;
-  background-color: white;
 }
 
 .message-container {
@@ -402,19 +402,24 @@ body {
 }
 
 .event-container{
-  position: fixed;
-  top: 30px;
+  height: 80vh;
   left: 0;
   right: 0;
-  padding: 20px;
+  margin-top: 70px;
   height: calc(100vh - 40px);
   overflow-y: auto;
-  background-color: white;
+  list-style-type: none;
+  border-top: 1px solid #ccc;
 }
 
 .event-btn {
+  
   background-color: #793398;
   color: #fdf1f6;
+}
+
+.event-btn a {
+  color: #fdf1f6 ;
 }
 
 /* Animated Diamond */
