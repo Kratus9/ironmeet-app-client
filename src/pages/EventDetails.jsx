@@ -202,7 +202,7 @@ function EventDetails() {
               )}
             </div>
           ) : (
-            <img src={eventData.image} alt={eventData.title} />
+            <img src={eventData.image} alt={eventData.title} className="event-img" />
           )}
         </div>
         <button type="submit" disabled={!isEditing}>
@@ -216,5 +216,7 @@ function EventDetails() {
     </div>
   );
 }
+
+
 
 export default EventDetails;

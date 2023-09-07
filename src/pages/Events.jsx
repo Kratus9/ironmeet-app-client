@@ -29,12 +29,12 @@ function Events() {
       <div className="event-container">
         <h2>Events</h2>
         {events.map((event) => (
-          <div key={event._id}>
+          <div key={event._id} className="event-card">
             <li>
               <h3>{event.title}</h3>
               <Link to={`/events/${event._id}/details`}>
                 <div>
-                  <img src={event.image} alt={event.title} width={100} />
+                  <img className="event-img" src={event.image} alt={event.title} width={100} />
                 </div>
               </Link>
               <p>{event.location}</p>
