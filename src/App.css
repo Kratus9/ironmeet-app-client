@@ -13,14 +13,10 @@
   height: auto;
 }
 
-
-
-
 #root {
   margin: 0 auto;
   width: 100vw;
   background-color: #fdf1f6;
-  
 }
 
 html,
@@ -35,7 +31,6 @@ body {
 * {
   font-family: "Readex Pro", sans-serif;
 }
-
 
 .navbar.navbar-bottom {
   position: fixed;
@@ -277,7 +272,6 @@ body {
   font-size: 16px;
 }
 
-
 .info-icon-link {
   margin-right: 10px;
   text-decoration: none;
@@ -293,8 +287,6 @@ body {
   display: flex;
   align-items: center;
 }
-
-
 
 .like-button {
   position: absolute;
@@ -322,7 +314,6 @@ body {
   border: 2px solid rgb(255, 57, 57);
   transform: scale(1.1)
 }
-
 
 .matches-display {
   margin-top: 40px;
@@ -408,6 +399,22 @@ body {
   top: 35%;
   justify-content: center;
   text-align: center;
+}
+
+.event-container{
+  position: fixed;
+  top: 30px;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+  background-color: white;
+}
+
+.event-btn {
+  background-color: #793398;
+  color: #fdf1f6;
 }
 
 /* Animated Diamond */
