@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../services/service.config";
 import { AuthContext } from "../context/auth.context";
-import Navbar from "../components/Navbar";
 
 function Login() {
   const { verifyToken } = useContext(AuthContext);
@@ -54,10 +53,10 @@ function Login() {
     <div className="login-form-container">
       <div className="logo">
         <img
-          src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png"
+          src="IronMeet logo-fotor-bg-remover-2023090792810.png"
           alt="Logo"
         />
-        <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
+        <img src="IRONMEET.PNG" alt="logo-slo" />
       </div>
       <h1>Log In</h1>
       <div className="form-margin p-3">
@@ -84,7 +83,7 @@ function Login() {
               className="form-control"
               placeholder="Password"
             />
-            <label hmtlFor="password">Password:</label>
+            <label htmlFor="password">Password:</label> {/* Corregido aquí */}
           </div>
 
           <br />
@@ -97,7 +96,6 @@ function Login() {
         </form>
       </div>
     </div>
-    
   );
 }
 

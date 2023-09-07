@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [imagePreview, setImagePreview] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
@@ -134,10 +133,10 @@ const SignUp = () => {
       {" "}
       <div className="logo">
         <img
-          src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png"
+          src="IronMeet logo-fotor-bg-remover-2023090792810.png"
           alt="Logo"
         />
-        <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
+        <img src="IRONMEET.PNG" alt="logo-slo" />
       </div>
       <div className="signup-title">
         <h1>Signup</h1>
@@ -277,7 +276,7 @@ const SignUp = () => {
               name="image"
               accept="image/*"
               onChange={handleImageChange}
-              class="form-control form-control-sm" 
+              className="form-control form-control-sm" 
               id="formFileSm"
             />
           </div>
