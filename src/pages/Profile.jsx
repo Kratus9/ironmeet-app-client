@@ -123,18 +123,25 @@ function Profile() {
   return (
     <div>
       <div className="logo">
-        <img src="/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img
+          src="/IronMeet logo-fotor-bg-remover-2023090792810.png"
+          alt="Logo"
+        />
         <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
-      <button onClick={handleLogout}>Log Out</button>
-      <h2>Profile</h2>
       <form onSubmit={handleSubmit}>
         <div>
           {isEditing ? (
             (console.log("Image URL:", userData.image),
-            (<img src={userData.image} alt={userData.name} width={100} />))
+            (
+              <div className="profile-img-container">
+                <img src={userData.image} alt={userData.name} width={100} />
+              </div>
+            ))
           ) : (
-            <img src={userData.image} alt={userData.name} width={100} />
+            <div className="profile-img-container">
+              <img src={userData.image} alt={userData.name} width={100} />
+            </div>
           )}
           <label>Name:</label>
           {isEditing ? (
@@ -268,6 +275,7 @@ function Profile() {
         <button type="button" onClick={() => setIsEditing(!isEditing)}>
           {isEditing ? "Cancel" : "Edit"}
         </button>
+        <button onClick={handleLogout}>Log Out</button>
       </form>
     </div>
   );
