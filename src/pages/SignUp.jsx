@@ -133,10 +133,10 @@ const SignUp = () => {
       {" "}
       <div className="logo">
         <img
-          src="IronMeet logo-fotor-bg-remover-2023090792810.png"
+          src="/IronMeet logo-fotor-bg-remover-2023090792810.png"
           alt="Logo"
         />
-        <img src="IRONMEET.PNG" alt="logo-slo" />
+        <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
       <div className="signup-title">
         <h1>Signup</h1>

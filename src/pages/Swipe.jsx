@@ -113,8 +113,8 @@ function Swipe() {
   return (
     <>
       <div className="logo">
-        <img src="IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
-        <img src="IRONMEET.PNG" alt="logo-slo" />
+        <img src="/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
       <div className="dashboard">
         <div className="swipe-container">
@@ -140,7 +140,7 @@ function Swipe() {
                     </h3>
                     <div className="location">
                       <img
-                        src="location-icon.jpg"
+                        src="/location-icon.jpg"
                         width={28}
                         alt="location"
                       />
@@ -161,7 +161,7 @@ function Swipe() {
                     >
                       <img
                         width={58}
-                        src="bggleJKGqirFChE (1).png"
+                        src="/bggleJKGqirFChE (1).png"
                         alt="like"
                       />
                     </button>
@@ -171,7 +171,7 @@ function Swipe() {
                     >
                       <img
                         width={55}
-                        src="GaVLxTdLgqSuYiC.png"
+                        src="/GaVLxTdLgqSuYiC.png"
                         alt="dislike"
                       />
                     </button>
