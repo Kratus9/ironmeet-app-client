@@ -130,164 +130,165 @@ const SignUp = () => {
   const preferences = ["Male", "Female", "Other"];
 
   return (
-    <div className="p-3 signup-container">
-      <h1>Signup</h1>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <div className="form-floating mb-1">
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="form-control"
-            id="floatingInput"
-            placeholder=""
-          />
-          <label for="floatingInput">Name:</label>
-        </div>
-        <div className="form-floating mb-1">
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-            className="form-control"
-            id="floatingInput"
-            placeholder=""
-          />
-          <label for="floatingInput">Username:</label>
-        </div>
-        <div className="form-floating mb-1">
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="form-control"
-            id="floatingInput"
-            placeholder=""
-          />
-          <label for="floatingInput">Email:</label>
-        </div>
-        <div className="form-floating mb-1">
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            className="form-control"
-            id="floatingInput"
-            placeholder=""
-          />
-          <label for="floatingInput">Password:</label>
-        </div>
-        <div className="form-floating mb-1">
-          <input
-            type="password"
-            name="repeatPassword"
-            value={formData.repeatPassword}
-            onChange={handleChange}
-            required
-            className="form-control"
-            id="floatingInput"
-            placeholder=""
-          />
-          <label for="floatingInput">Repeat Password:</label>
-        </div>
-        <div className="form-floating mb-1">
-          <input
-            type="text"
-            name="age"
-            value={formData.age}
-            onChange={handleChange}
-            required
-            className="form-control"
-            id="floatingInput"
-            placeholder=""
-          />
-          <label for="floatingInput">Age:</label>
-        </div>
-        <div className="form-floating mb-1">
-          <select
-            name="gender"
-            value={formData.gender}
-            onChange={handleChange}
-            required
-            className="form-select"
-            id="floatingSelect"
-            aria-label="Floating label select"
-          >
-            <option value="">Select gender</option>
-            {gender.map((gender, index) => (
-              <option key={index} value={gender}>
-                {gender}
-              </option>
-            ))}
-          </select>
-          <label for="floatingSelect">Gender:</label>
-        </div>
-        <div className="form-floating mb-1">
-          <select
-            name="preferences"
-            value={formData.preferences}
-            onChange={handleChange}
-            required
-            className="form-select"
-            id="floatingSelect"
-            aria-label="Floating label select"
-          >
-            <option value="">Select preferences</option>
-            {preferences.map((preferences, index) => (
-              <option key={index} value={preferences}>
-                {preferences}
-              </option>
-            ))}
-          </select>
-          <label for="floatingSelect">Preferences:</label>
-        </div>
-        <div className="form-floating">
-          <select
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            required
-            className="form-select"
-            id="floatingSelect"
-            aria-label="Floating label select"
-          >
-            <option value="">Select location</option>
-            {locations.map((location, index) => (
-              <option key={index} value={location}>
-                {location}
-              </option>
-            ))}
-          </select>
-          <label for="floatingSelect">Location:</label>
-        </div>
-        <div>
-          <label>Image:</label>
-          <input
-            type="file"
-            name="image"
-            accept="image/*"
-            onChange={handleImageChange}
-          />
-          {imagePreview && (
-            <img
-              src={imagePreview}
-              alt="Preview"
-              style={{ maxWidth: "100px" }}
+    <>
+      {" "}
+      <div className="logo">
+        <img
+          src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png"
+          alt="Logo"
+        />
+        <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
+      </div>
+      <div className="p-3 signup-container">
+        <h1>Signup</h1>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
+          <div className="form-floating mb-1">
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="form-control"
+              placeholder=""
             />
-          )}
-        </div>
-        <button type="submit">Sign Up</button>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-      </form>
-    </div>
+            <label htmlFor="name">Name:</label>
+          </div>
+          <div className="form-floating mb-1">
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+              className="form-control"
+              placeholder=""
+            />
+            <label htmlFor="username">Username:</label>
+          </div>
+          <div className="form-floating mb-1">
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="form-control"
+              placeholder=""
+            />
+            <label htmlFor="email">Email:</label>
+          </div>
+          <div className="form-floating mb-1">
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="form-control"
+              placeholder=""
+            />
+            <label htmlFor="password">Password:</label>
+          </div>
+          <div className="form-floating mb-1">
+            <input
+              type="password"
+              name="repeatPassword"
+              value={formData.repeatPassword}
+              onChange={handleChange}
+              required
+              className="form-control"
+              placeholder=""
+            />
+            <label htmlFor="repeatPassword">Repeat Password:</label>
+          </div>
+          <div className="form-floating mb-1">
+            <input
+              type="text"
+              name="age"
+              value={formData.age}
+              onChange={handleChange}
+              required
+              className="form-control"
+              placeholder=""
+            />
+            <label htmlFor="age">Age:</label>
+          </div>
+          <div className="form-floating mb-1">
+            <select
+              name="gender"
+              value={formData.gender}
+              onChange={handleChange}
+              required
+              className="form-select"
+              aria-label="Floating label select"
+            >
+              <option value="">Select gender</option>
+              {gender.map((gender, index) => (
+                <option key={index} value={gender}>
+                  {gender}
+                </option>
+              ))}
+            </select>
+            <label htmlFor="gender">Gender:</label>
+          </div>
+          <div className="form-floating mb-1">
+            <select
+              name="preferences"
+              value={formData.preferences}
+              onChange={handleChange}
+              required
+              className="form-select"
+              aria-label="Floating label select"
+            >
+              <option value="">Select preferences</option>
+              {preferences.map((preferences, index) => (
+                <option key={index} value={preferences}>
+                  {preferences}
+                </option>
+              ))}
+            </select>
+            <label htmlFor="preferences">Preferences:</label>
+          </div>
+          <div className="form-floating">
+            <select
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              className="form-select"
+              aria-label="Floating label select"
+            >
+              <option value="">Select location</option>
+              {locations.map((location, index) => (
+                <option key={index} value={location}>
+                  {location}
+                </option>
+              ))}
+            </select>
+            <label htmlFor="location">Location:</label>
+          </div>
+          <div>
+            <label>Image:</label>
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+            {imagePreview && (
+              <img
+                src={imagePreview}
+                alt="Preview"
+                style={{ maxWidth: "100px" }}
+              />
+            )}
+          </div>
+          <button type="submit">Sign Up</button>
+          {errorMessage ? <p>{errorMessage}</p> : null}
+        </form>
+      </div>
+    </>
   );
 };
 

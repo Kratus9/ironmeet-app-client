@@ -1,10 +1,9 @@
-
 import React, { useState } from "react";
 import service from "../services/service.config";
 import { useNavigate } from "react-router";
 
 function EventCreate() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [imagePreview, setImagePreview] = useState(null);
   const [formData, setFormData] = useState({
     title: "",
@@ -100,7 +99,7 @@ function EventCreate() {
       formDataToSend.append("location", formData.location);
       formDataToSend.append("image", formData.image);
       await service.post("/events/new-event", formDataToSend);
-      navigate("/events")
+      navigate("/events");
     } catch (error) {
       console.error("Error creating event: ", error);
       if (error.response && error.response.status === 400) {
@@ -113,6 +112,10 @@ function EventCreate() {
 
   return (
     <div>
+      <div className="logo">
+        <img src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
+      </div>
       <h2>Create Event</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -143,11 +146,11 @@ function EventCreate() {
             required
           >
             <option value="">Select location</option>
-            {locations.map((location, index) => 
+            {locations.map((location, index) => (
               <option key={index} value={location}>
-              {location}
-            </option>
-            )}
+                {location}
+              </option>
+            ))}
           </select>
         </div>
         <div>

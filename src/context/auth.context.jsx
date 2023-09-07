@@ -42,8 +42,8 @@ function AuthWrapper(props) {
   if (isPageLoading === true) {
     return (
       <div>
-        <div class="back"></div>
-        <div class="heart"></div>
+        <div className="back"></div>
+        <div className="heart"></div>
       </div>
     );
   }

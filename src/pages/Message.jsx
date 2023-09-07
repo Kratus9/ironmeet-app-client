@@ -42,7 +42,6 @@ function Messages() {
   };
 
   const handleKeyDown = (e) => {
-    
     if (e.key === "Enter") {
       sendMessage();
     }
@@ -50,6 +49,10 @@ function Messages() {
 
   return (
     <div>
+      <div className="logo">
+        <img src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
+      </div>
       <div className="messages">
         {messages.map((message) => (
           <div key={message._id} className="message">

@@ -9,7 +9,6 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import ProfileDetails from "./pages/ProfileDetails";
 import EventDetails from "./pages/EventDetails";
-import EventEdit from "./pages/EventEdit";
 import EventCreate from "./pages/EventCreate";
 import Home from "./pages/Home";
 import IsPrivate from "./components/IsPrivate";
@@ -70,7 +69,7 @@ function App() {
           path="/events/:eventId/edit"
           element={
             <IsPrivate>
-              <EventEdit />
+              <EventDetails />
             </IsPrivate>
           }
         />

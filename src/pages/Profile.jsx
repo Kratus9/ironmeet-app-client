@@ -81,7 +81,7 @@ function Profile() {
     const fetchUserProfile = async () => {
       try {
         const response = await service.get("/user/profile");
-        console.log("Response from server:", response.data)
+        console.log("Response from server:", response.data);
         setUserData(response.data);
       } catch (error) {
         console.log(error);
@@ -92,7 +92,7 @@ function Profile() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(`Field "${name}" changed to "${value}"`)
+    console.log(`Field "${name}" changed to "${value}"`);
     setUserData({
       ...userData,
       [name]: value,
@@ -104,7 +104,7 @@ function Profile() {
 
     try {
       await service.patch("/user/profile/update", userData);
-      console.log("Profile updated successfully")
+      console.log("Profile updated successfully");
 
       setIsEditing(false);
     } catch (error) {
@@ -120,19 +120,20 @@ function Profile() {
     navigate("/login");
   };
 
-  
-
   return (
     <div>
+      <div className="logo">
+        <img src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
+      </div>
       <button onClick={handleLogout}>Log Out</button>
       <h2>Profile</h2>
       <form onSubmit={handleSubmit}>
         <div>
           {isEditing ? (
-            console.log("Image URL:", userData.image),
-            <img src={userData.image} alt={userData.name} width={100} />
+            (console.log("Image URL:", userData.image),
+            (<img src={userData.image} alt={userData.name} width={100} />))
           ) : (
-            
             <img src={userData.image} alt={userData.name} width={100} />
           )}
           <label>Name:</label>

@@ -111,73 +111,84 @@ function Swipe() {
   };
 
   return (
-    <div className="dashboard">
-      <div className="swipe-container">
-        <div className="card-container">
-          {users.length > 0 && currentIndex < users.length ? (
-            <TinderCard
-              preventSwipe={["up", "down"]}
-              key={users[currentIndex]._id}
-              onSwipe={(dir) => handleSwipe(dir)()}
-              className="tinder-card"
-            >
-              <div
-                style={{ backgroundImage: `url(${users[currentIndex].image})` }}
-                className="card"
+    <>
+      <div className="logo">
+        <img src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
+      </div>
+      <div className="dashboard">
+        <div className="swipe-container">
+          <div className="card-container">
+            {users.length > 0 && currentIndex < users.length ? (
+              <TinderCard
+                preventSwipe={["up", "down"]}
+                key={users[currentIndex]._id}
+                onSwipe={(dir) => handleSwipe(dir)()}
+                className="tinder-card"
               >
-                {showMatchStamp && <div className="match-stamp">MATCH</div>}
-                <div className="user-info">
-                  <h3 className="user-name">
-                    {users[currentIndex].name} <br />{" "}
-                    <span>{users[currentIndex].age}</span>
-                  </h3>
-                  <div className="location">
-                    <img
-                      src="src/assets/location-icon.jpg"
-                      width={28}
-                      alt="location"
-                    />
-                    <span>{users[currentIndex].location}</span>
-                  </div>
-
-                  <Link
-                    to={`/user/${users[currentIndex]._id}/profile`}
-                    className="info-icon-link"
-                  >
-                    <FaInfoCircle className="info-icon" />
-                  </Link>
-                </div>
-                <div className="black-background">
-                <button className="like-button" onClick={handleAction("like")}>
-                  <img
-                    width={58}
-                    src="src/assets/bggleJKGqirFChE (1).png"
-                    alt="like"
-                  />
-                </button>
-                <button
-                  className="dislike-button"
-                  onClick={handleAction("dislike")}
+                <div
+                  style={{
+                    backgroundImage: `url(${users[currentIndex].image})`,
+                  }}
+                  className="card"
                 >
-                  <img
-                    width={55}
-                    src="src/assets/GaVLxTdLgqSuYiC.png"
-                    alt="dislike"
-                  />
-                </button>
+                  {showMatchStamp && <div className="match-stamp">MATCH</div>}
+                  <div className="user-info">
+                    <h3 className="user-name">
+                      {users[currentIndex].name} <br />{" "}
+                      <span>{users[currentIndex].age}</span>
+                    </h3>
+                    <div className="location">
+                      <img
+                        src="src/assets/location-icon.jpg"
+                        width={28}
+                        alt="location"
+                      />
+                      <span>{users[currentIndex].location}</span>
+                    </div>
+
+                    <Link
+                      to={`/user/${users[currentIndex]._id}/profile`}
+                      className="info-icon-link"
+                    >
+                      <FaInfoCircle className="info-icon" />
+                    </Link>
+                  </div>
+                  <div className="black-background">
+                    <button
+                      className="like-button"
+                      onClick={handleAction("like")}
+                    >
+                      <img
+                        width={58}
+                        src="src/assets/bggleJKGqirFChE (1).png"
+                        alt="like"
+                      />
+                    </button>
+                    <button
+                      className="dislike-button"
+                      onClick={handleAction("dislike")}
+                    >
+                      <img
+                        width={55}
+                        src="src/assets/GaVLxTdLgqSuYiC.png"
+                        alt="dislike"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </TinderCard>
+            ) : (
+              <div className="swipe-info-container">
+                <div className="swipe-info">
+                  <p>No more users to swipe</p>
                 </div>
               </div>
-            </TinderCard>
-          ) : (
-            <div className="swipe-info-container">
-              <div className="swipe-info">
-                <p>No more users to swipe</p>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

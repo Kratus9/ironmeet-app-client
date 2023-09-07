@@ -34,78 +34,87 @@ function Likes() {
   };
 
   return (
-    <div className="matches-display">
-      {userRole === "user" && (
-        <div className="diamond-member-message">
-          <div className="message-container">
-            <h3>Become a Diamond Member to discover who liked you!</h3>
-          </div>
-          <div className="wrap rotor-x">
-            <div className="wrap rotor-y">
-              <div className="wrap rotor-z">
-                <div className="triangle bottom face-1"></div>
-                <div className="triangle bottom face-2"></div>
-                <div className="triangle bottom face-3"></div>
-                <div className="triangle bottom face-4"></div>
-                <div className="triangle bottom face-5"></div>
-                <div className="triangle bottom face-6"></div>
-                <div className="triangle bottom face-7"></div>
-                <div className="triangle bottom face-8"></div>
+    <>
+      {" "}
+      <div className="logo">
+        <img src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
+      </div>
+      <div className="matches-display">
+        {userRole === "user" && (
+          <div className="diamond-member-message">
+            <div className="message-container">
+              <h3>Become a Diamond Member to discover who liked you!</h3>
+            </div>
+            <div className="wrap rotor-x">
+              <div className="wrap rotor-y">
+                <div className="wrap rotor-z">
+                  <div className="triangle bottom face-1"></div>
+                  <div className="triangle bottom face-2"></div>
+                  <div className="triangle bottom face-3"></div>
+                  <div className="triangle bottom face-4"></div>
+                  <div className="triangle bottom face-5"></div>
+                  <div className="triangle bottom face-6"></div>
+                  <div className="triangle bottom face-7"></div>
+                  <div className="triangle bottom face-8"></div>
 
-                <div className="triangle middle-bottom face-1"></div>
-                <div className="triangle middle-bottom face-2"></div>
-                <div className="triangle middle-bottom face-3"></div>
-                <div className="triangle middle-bottom face-4"></div>
-                <div className="triangle middle-bottom face-5"></div>
-                <div className="triangle middle-bottom face-6"></div>
-                <div className="triangle middle-bottom face-7"></div>
-                <div className="triangle middle-bottom face-8"></div>
+                  <div className="triangle middle-bottom face-1"></div>
+                  <div className="triangle middle-bottom face-2"></div>
+                  <div className="triangle middle-bottom face-3"></div>
+                  <div className="triangle middle-bottom face-4"></div>
+                  <div className="triangle middle-bottom face-5"></div>
+                  <div className="triangle middle-bottom face-6"></div>
+                  <div className="triangle middle-bottom face-7"></div>
+                  <div className="triangle middle-bottom face-8"></div>
 
-                <div className="triangle middle-top face-1"></div>
-                <div className="triangle middle-top face-2"></div>
-                <div className="triangle middle-top face-3"></div>
-                <div className="triangle middle-top face-4"></div>
-                <div className="triangle middle-top face-5"></div>
-                <div className="triangle middle-top face-6"></div>
-                <div className="triangle middle-top face-7"></div>
-                <div className="triangle middle-top face-8"></div>
+                  <div className="triangle middle-top face-1"></div>
+                  <div className="triangle middle-top face-2"></div>
+                  <div className="triangle middle-top face-3"></div>
+                  <div className="triangle middle-top face-4"></div>
+                  <div className="triangle middle-top face-5"></div>
+                  <div className="triangle middle-top face-6"></div>
+                  <div className="triangle middle-top face-7"></div>
+                  <div className="triangle middle-top face-8"></div>
 
-                <div className="triangle up face-1"></div>
-                <div className="triangle up face-2"></div>
-                <div className="triangle up face-3"></div>
-                <div className="triangle up face-4"></div>
-                <div className="triangle up face-5"></div>
-                <div className="triangle up face-6"></div>
-                <div className="triangle up face-7"></div>
-                <div className="triangle up face-8"></div>
+                  <div className="triangle up face-1"></div>
+                  <div className="triangle up face-2"></div>
+                  <div className="triangle up face-3"></div>
+                  <div className="triangle up face-4"></div>
+                  <div className="triangle up face-5"></div>
+                  <div className="triangle up face-6"></div>
+                  <div className="triangle up face-7"></div>
+                  <div className="triangle up face-8"></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
-      {likes.map((like, index) => (
-        <div
-          key={index}
-          className={`match-card ${userRole !== "diamondMember" ? "blur" : ""}`}
-        >
-          <Link to={`/user/${like._id}/profile`}>
-            <div className="img-container">
-              <img src={like.image} alt={like.name} />
-            </div>
-          </Link>
-          <div className="chat-container">
-            <h3>{like.name}</h3>
-            <Link
-              to={`/messages/${activeUserId}/${like._id}`}
-              onClick={() => handleStartChat(like._id)}
-            >
-              {like.name} likes you...
-              <br /> Start chatting! 😈
+        )}
+        {likes.map((like, index) => (
+          <div
+            key={index}
+            className={`match-card ${
+              userRole !== "diamondMember" ? "blur" : ""
+            }`}
+          >
+            <Link to={`/user/${like._id}/profile`}>
+              <div className="img-container">
+                <img src={like.image} alt={like.name} />
+              </div>
             </Link>
+            <div className="chat-container">
+              <h3>{like.name}</h3>
+              <Link
+                to={`/messages/${activeUserId}/${like._id}`}
+                onClick={() => handleStartChat(like._id)}
+              >
+                {like.name} likes you...
+                <br /> Start chatting! 😈
+              </Link>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 }
 

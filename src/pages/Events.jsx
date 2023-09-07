@@ -20,6 +20,10 @@ function Events() {
 
   return (
     <div>
+      <div className="logo">
+        <img src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
+      </div>
       <h2>Events</h2>
       <ul>
         {events.map((event) => (

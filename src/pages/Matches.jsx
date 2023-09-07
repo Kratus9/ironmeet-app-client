@@ -14,9 +14,7 @@ function Matches() {
         const response = await service.get("/user/matches");
         setMatches(response.data);
       } catch (error) {
-        setError(
-          "Error getting matches. Try again later..."
-        );
+        setError("Error getting matches. Try again later...");
         console.error("Error getting matches:", error);
       }
     };
@@ -25,21 +23,29 @@ function Matches() {
   }, []);
 
   return (
-    <div className="matches-display">
-      {matches.map((match, index) => (
-        <div key={index} className="match-card">
-          <Link to={`/user/${match._id}/profile`}>
-            <div className="img-container">
-              <img src={match.image} alt={match.name + " profile"} />
+    <>
+      <div className="logo">
+        <img src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
+      </div>
+      <div className="matches-display">
+        {matches.map((match, index) => (
+          <div key={index} className="match-card">
+            <Link to={`/user/${match._id}/profile`}>
+              <div className="img-container">
+                <img src={match.image} alt={match.name + " profile"} />
+              </div>
+            </Link>
+            <div className="chat-container">
+              <h3>{match.name}</h3>
+              <Link to={`/messages/${activeUserId}/${match._id}`}>
+                Catch up!
+              </Link>
             </div>
-          </Link>
-          <div className="chat-container">
-            <h3>{match.name}</h3>
-            <Link to={`/messages/${activeUserId}/${match._id}`}>Catch up!</Link>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 }
 

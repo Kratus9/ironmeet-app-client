@@ -69,9 +69,42 @@ body {
   text-align: center;
   padding: 45px;
 }
+
 .nav-not-logged-in {
-  color: #793398;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fdf1f6;
+  padding-bottom: 16px;
+  border-top: 1px solid #ccc;
 }
+
+
+  
+  .nav-not-logged-in a:link {
+    color: #6f2a8d;
+  }
+  
+
+  .nav-not-logged-in a:visited {
+    color: #6f2a8d;
+  }
+  
+ 
+  .nav-not-logged-in a:hover {
+    color: #bb4fe9;
+  }
+  
+
+  .nav-not-logged-in a:active {
+    color: #bb4fe9;
+  }
+
 
 .login-form-container input {
   background-color: #793398;
