@@ -3,12 +3,10 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import service from "../services/service.config";
 
-
 function Profile() {
   const navigate = useNavigate();
 
   const { verifyToken } = useContext(AuthContext);
-  
 
   const [userData, setUserData] = useState({
     name: "",
@@ -22,7 +20,6 @@ function Profile() {
     image: "",
   });
 
-  
   const [isEditing, setIsEditing] = useState(false);
 
   const gender = ["Male", "Female", "Other"];
@@ -102,16 +99,12 @@ function Profile() {
     });
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       await service.patch("/user/profile/update", userData);
       console.log("Profile updated successfully");
-
- 
 
       setIsEditing(false);
     } catch (error) {
@@ -150,6 +143,9 @@ function Profile() {
               <img src={userData.image} alt={userData.name} width={100} />
             </div>
           )}
+        </div>
+
+        <div>
           <label>Name:</label>
           {isEditing ? (
             <input
@@ -162,6 +158,7 @@ function Profile() {
             <span>{userData.name}</span>
           )}
         </div>
+        
         <div>
           <label>Username:</label>
           {isEditing ? (
@@ -277,23 +274,31 @@ function Profile() {
           )}
         </div>
       </form>
-        <div className="btn-profile">
+      <div className="btn-profile">
         <a
-  type="submit"
-  onClick={() => setIsEditing(!isEditing)}
-  disabled={!isEditing}
->
-  <img src="2639912_save_icon-removebg-preview.png" width={50} alt="save" />
-</a>
-        <a type="button" onClick={() => setIsEditing(!isEditing)}>
-          <img src="settings_563687-removebg-preview.png" width={50} alt="edit" />
+          type="submit"
+          onClick={() => setIsEditing(!isEditing)}
+          disabled={!isEditing}
+        >
+          <img
+            src="2639912_save_icon-removebg-preview.png"
+            width={50}
+            alt="save"
+          />
         </a>
-        </div>
-        <button className="logout-btn" onClick={handleLogout}>Log Out</button>
+        <a type="button" onClick={() => setIsEditing(!isEditing)}>
+          <img
+            src="settings_563687-removebg-preview.png"
+            width={50}
+            alt="edit"
+          />
+        </a>
+      </div>
+      <button className="logout-btn" onClick={handleLogout}>
+        Log Out
+      </button>
     </div>
   );
 }
-
-
 
 export default Profile;

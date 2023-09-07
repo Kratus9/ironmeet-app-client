@@ -178,6 +178,12 @@ body {
   color: #fdf1f6;
 }
 
+.event-img-container{
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
 .label-textarea {
   color: #793398;
   font-weight: 600;
@@ -601,8 +607,6 @@ body {
   margin-left: 8px;
   display: none;
 }
-
-
 
 .event-container {
   margin-top: 70px;
