@@ -53,13 +53,17 @@ function Messages() {
         <img src="/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
         <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
-      <div className="messages">
-        {messages.map((message) => (
-          <div key={message._id} className="message">
-            {message.text}
-          </div>
-        ))}
-      </div>
+      <div className="message-container">
+  {messages.map((message) => (
+    <div
+      key={message._id}
+      className={`message ${
+        message.sender === senderId ? "user-message" : "message"
+      }`}
+    >
+      {message.text}
+    </div>
+  ))}
       <div className="message-input">
         <input
           type="text"
@@ -70,6 +74,7 @@ function Messages() {
         />
         <button onClick={sendMessage}>Send message</button>
       </div>
+</div>
     </div>
   );
 }
