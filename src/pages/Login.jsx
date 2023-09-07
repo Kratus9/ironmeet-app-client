@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../services/service.config";
 import { AuthContext } from "../context/auth.context";
+import Navbar from "../components/Navbar";
 
 function Login() {
   const { verifyToken } = useContext(AuthContext);
@@ -96,6 +97,7 @@ function Login() {
         </form>
       </div>
     </div>
+    
   );
 }
 

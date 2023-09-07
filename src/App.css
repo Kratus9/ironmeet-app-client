@@ -13,13 +13,19 @@
   height: auto;
 }
 
+
+
+
 #root {
+  margin: 0 auto;
   width: 100vw;
   background-color: #fdf1f6;
+  
 }
 
 html,
 body {
+  margin: 0;
   padding: 0;
   text-align: center;
   width: 100vw;
@@ -29,6 +35,7 @@ body {
 * {
   font-family: "Readex Pro", sans-serif;
 }
+
 
 .navbar.navbar-bottom {
   position: fixed;

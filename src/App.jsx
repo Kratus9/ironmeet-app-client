@@ -15,14 +15,12 @@ import IsPrivate from "./components/IsPrivate";
 import Navbar from "./components/Navbar";
 import Swipe from "./pages/Swipe";
 import NotFound from "./pages/NotFound";
-import Error from "./pages/Error"
+import Error from "./pages/Error";
 
 function App() {
   return (
     <>
-      
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route
           path="/swipe"
           element={
@@ -106,7 +104,7 @@ function App() {
           }
         />
 
-       
+        <Route path="/" element={<Home />} />
         <Route path="/error" element={<Error />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
