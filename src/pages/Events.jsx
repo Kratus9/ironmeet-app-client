@@ -27,7 +27,6 @@ function Events() {
         <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
       <div className="event-container">
-        <h2>Events</h2>
         {events.map((event) => (
           <div key={event._id} className="event-card">
             <li>

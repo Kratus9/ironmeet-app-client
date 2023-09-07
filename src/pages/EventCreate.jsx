@@ -116,7 +116,6 @@ function EventCreate() {
         <img src="/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
         <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
-      <h2>Create Event</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Title:</label>

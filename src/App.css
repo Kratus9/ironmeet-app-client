@@ -426,8 +426,6 @@ body {
   left: 0;
   right: 0;
   margin-top: 70px;
-  height: calc(100vh - 40px);
-  overflow-y: auto;
   list-style-type: none;
   border-top: 1px solid #ccc;
 }

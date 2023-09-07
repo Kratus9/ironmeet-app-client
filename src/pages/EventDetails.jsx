@@ -134,7 +134,6 @@ function EventDetails() {
         <img src="/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
         <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
-      <h2>EventDetails</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Title:</label>
@@ -205,13 +204,13 @@ function EventDetails() {
             <img src={eventData.image} alt={eventData.title} className="event-img" />
           )}
         </div>
-        <button type="submit" disabled={!isEditing}>
+        <button className="event-btn" type="submit" disabled={!isEditing}>
           Save
         </button>
-        <button type="button" onClick={() => setIsEditing(!isEditing)}>
+        <button className="event-btn" type="button" onClick={() => setIsEditing(!isEditing)}>
           {isEditing ? "Cancel" : "Edit"}
         </button>
-        <button onClick={handleDelete}>Delete</button>
+        <button className="event-btn" onClick={handleDelete}>Delete</button>
       </form>
     </div>
   );
