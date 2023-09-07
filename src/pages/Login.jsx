@@ -53,10 +53,10 @@ function Login() {
     <div className="login-form-container">
       <div className="logo">
         <img
-          src="IronMeet logo-fotor-bg-remover-2023090792810.png"
+          src="/IronMeet logo-fotor-bg-remover-2023090792810.png"
           alt="Logo"
         />
-        <img src="IRONMEET.PNG" alt="logo-slo" />
+        <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
       <h1>Log In</h1>
       <div className="form-margin p-3">
