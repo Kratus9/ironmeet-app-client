@@ -422,9 +422,6 @@ body {
 }
 
 .event-container{
-  height: 80vh;
-  left: 0;
-  right: 0;
   margin-top: 70px;
   list-style-type: none;
   border-top: 1px solid #ccc;
