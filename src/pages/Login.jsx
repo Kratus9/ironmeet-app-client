@@ -51,7 +51,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="login-form-container">
       <div className="logo">
         <img
           src="src/assets/IronMeet logo-fotor-bg-remover-2023090792810.png"
@@ -60,9 +60,9 @@ function Login() {
         <img src="./src/assets/IRONMEET.PNG" alt="logo-slo" />
       </div>
       <h1>Log In</h1>
-      <div className="form-margin">
+      <div className="form-margin p-3">
         <form onSubmit={handleLogin}>
-          <div className="form-floating mb-3">
+          <div className="form-floating mb-1">
             <input
               type="username"
               name="username"
@@ -75,7 +75,7 @@ function Login() {
           </div>
 
           <br />
-          <div className="form-floating mb-3">
+          <div className="form-floating mb-1">
             <input
               type="password"
               name="password"
