@@ -267,7 +267,7 @@ const SignUp = () => {
                 </option>
               ))}
             </select>
-            <label htmlFor="location">Location:</label>
+            <label htmlfor="location">Location:</label>
           </div>
           <div className="">
             <label className="imglabel">Profile Image:</label>

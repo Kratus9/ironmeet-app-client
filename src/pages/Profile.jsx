@@ -129,7 +129,7 @@ function Profile() {
         />
         <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="profile-container">
         <div>
           {isEditing ? (
             (console.log("Image URL:", userData.image),
@@ -269,16 +269,20 @@ function Profile() {
             <span>{userData.description}</span>
           )}
         </div>
+        <div className="btn-profile">
         <button type="submit" disabled={!isEditing}>
           Save
         </button>
         <button type="button" onClick={() => setIsEditing(!isEditing)}>
           {isEditing ? "Cancel" : "Edit"}
         </button>
-        <button onClick={handleLogout}>Log Out</button>
+        </div>
       </form>
+        <button className="logout-btn" onClick={handleLogout}>Log Out</button>
     </div>
   );
 }
+
+
 
 export default Profile;

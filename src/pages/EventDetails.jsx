@@ -131,10 +131,13 @@ function EventDetails() {
   return (
     <div>
       <div className="logo">
-        <img src="/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img
+          src="/IronMeet logo-fotor-bg-remover-2023090792810.png"
+          alt="Logo"
+        />
         <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="event-container">
         <div>
           <label>Title:</label>
           {isEditing ? (
@@ -146,19 +149,6 @@ function EventDetails() {
             />
           ) : (
             <span>{eventData.title}</span>
-          )}
-        </div>
-        <div>
-          <label>Description:</label>
-          {isEditing ? (
-            <textarea
-              type="text"
-              name="description"
-              value={eventData.description}
-              onChange={handleChange}
-            />
-          ) : (
-            <span>{eventData.description}</span>
           )}
         </div>
 
@@ -183,6 +173,20 @@ function EventDetails() {
         </div>
 
         <div>
+          <label>Description:</label>
+          {isEditing ? (
+            <textarea
+              type="text"
+              name="description"
+              value={eventData.description}
+              onChange={handleChange}
+            />
+          ) : (
+            <span>{eventData.description}</span>
+          )}
+        </div>
+
+        <div>
           <label>Image:</label>
           {isEditing ? (
             <div>
@@ -201,21 +205,29 @@ function EventDetails() {
               )}
             </div>
           ) : (
-            <img src={eventData.image} alt={eventData.title} className="event-img" />
+            <img
+              src={eventData.image}
+              alt={eventData.title}
+              className="event-img"
+            />
           )}
         </div>
         <button className="event-btn" type="submit" disabled={!isEditing}>
           Save
         </button>
-        <button className="event-btn" type="button" onClick={() => setIsEditing(!isEditing)}>
+        <button
+          className="event-btn"
+          type="button"
+          onClick={() => setIsEditing(!isEditing)}
+        >
           {isEditing ? "Cancel" : "Edit"}
         </button>
-        <button className="event-btn" onClick={handleDelete}>Delete</button>
+        <button className="event-btn" onClick={handleDelete}>
+          Delete
+        </button>
       </form>
     </div>
   );
 }
-
-
 
 export default EventDetails;

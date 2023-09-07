@@ -113,63 +113,76 @@ function EventCreate() {
   return (
     <div>
       <div className="logo">
-        <img src="/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img
+          src="/IronMeet logo-fotor-bg-remover-2023090792810.png"
+          alt="Logo"
+        />
         <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Description:</label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-          ></textarea>
-        </div>
-        <div>
-          <label>Location:</label>
-          <select
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select location</option>
-            {locations.map((location, index) => (
-              <option key={index} value={location}>
-                {location}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Image:</label>
-          <input
-            type="file"
-            accept="image/*"
-            name="image"
-            onChange={handleImageChange}
-          />
-          {imagePreview && (
-            <img
-              src={imagePreview}
-              alt="Preview"
-              style={{ maxWidth: "100px" }}
+      <div className="event-form-container">
+        <form onSubmit={handleSubmit}>
+          <div className="form-floating mb-1">
+            <input
+              type="text"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              required
+              className="form-control"
+              placeholder=""
             />
-          )}
-        </div>
-        <button className="event-btn" type="submit">Create Event</button>
-      </form>
+            <label htmlFor="title">Title:</label>
+          </div>
+          <div className="form-floating">
+            <select
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              className="form-select"
+              aria-label="Floating label select"
+            >
+              <option value="">Select location</option>
+              {locations.map((location, index) => (
+                <option key={index} value={location}>
+                  {location}
+                </option>
+              ))}
+            </select>
+              <label htmlfor="location">Location:</label>
+          </div>
+          <div>
+            <label className="label-textarea" htmlfor="description">Description:</label>
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              required
+              className="form-control"
+              placeholder=""
+            ></textarea>
+          </div>
+          <div>
+            <label>Image:</label>
+            <input
+              type="file"
+              accept="image/*"
+              name="image"
+              onChange={handleImageChange}
+            />
+            {imagePreview && (
+              <img
+                src={imagePreview}
+                alt="Preview"
+                style={{ maxWidth: "100px" }}
+              />
+            )}
+          </div>
+          <button className="event-btn" type="submit">
+            Create Event
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

@@ -18,31 +18,39 @@ function Events() {
     fetchEvents();
   }, []);
 
-
-
   return (
     <div>
       <div className="logo">
-        <img src="/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img
+          src="/IronMeet logo-fotor-bg-remover-2023090792810.png"
+          alt="Logo"
+        />
         <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
       <div className="event-container p-1">
         {events.map((event) => (
-          <div key={event._id} className="event-card">
+          <Link to={`/events/${event._id}/details`}>
+          <div
+            key={event._id}
+            className="event-card"
+            style={{
+              backgroundImage: `url(${event.image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
             <li>
-              <h3>{event.title}</h3>
-              <Link to={`/events/${event._id}/details`}>
-                <div>
-                  <img className="event-img" src={event.image} alt={event.title} />
-                </div>
-              </Link>
-              <p>{event.location}</p>
+              <h3 className="location-h3">{event.title}</h3>
+              <p className="location-p">{event.location}</p>
             </li>
           </div>
+              </Link>
         ))}
+        <div className="event-btn-container">
         <button className="event-btn">
           <Link to={"/events/new-event"}>Create Event!</Link>
         </button>
+        </div>
       </div>
     </div>
   );
