@@ -18,6 +18,8 @@ function Events() {
     fetchEvents();
   }, []);
 
+  
+
   return (
     <div>
       <div className="logo">
