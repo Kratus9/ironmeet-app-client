@@ -40,7 +40,7 @@ function Events() {
           </div>
         ))}
       </ul>
-      <button>
+      <button className="event-btn">
         <Link to={"/events/new-event"}>Create Event!</Link>
       </button>
     </div>
