@@ -180,8 +180,8 @@ function Swipe() {
               </TinderCard>
             ) : (
               <div className="swipe-info-container">
-                <div className="swipe-info">
-                  <p>No more users to swipe</p>
+                <div className="swipe-info swipe-text-container">
+                  <h3>No more users to swipe!</h3>
                 </div>
               </div>
             )}

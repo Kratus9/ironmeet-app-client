@@ -130,7 +130,7 @@ const SignUp = () => {
 
   return (
     <>
-      {" "}
+      
       <div className="logo">
         <img
           src="/IronMeet logo-fotor-bg-remover-2023090792810.png"
