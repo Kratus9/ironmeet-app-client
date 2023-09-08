@@ -32,7 +32,7 @@ function Login() {
           },
         }
       );
-      console.log(response);
+      
 
       localStorage.setItem("authToken", response.data.authToken);
 

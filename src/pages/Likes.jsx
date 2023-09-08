@@ -35,17 +35,20 @@ function Likes() {
 
   return (
     <>
-      {" "}
       <div className="logo">
-        <img src="/IronMeet logo-fotor-bg-remover-2023090792810.png" alt="Logo" />
+        <img
+          src="/IronMeet logo-fotor-bg-remover-2023090792810.png"
+          alt="Logo"
+        />
         <img src="/IRONMEET.PNG" alt="logo-slo" />
       </div>
       <div className="matches-display">
         {userRole === "user" && (
-          <div className="diamond-member-message">
-            <div className="message-container">
-              <h3>Become a Diamond Member to discover who liked you!</h3>
+          <>
+            <div>
+              <h3 className="diamond-message">Become a Diamond Member to discover who liked you!</h3>
             </div>
+
             <div className="wrap rotor-x">
               <div className="wrap rotor-y">
                 <div className="wrap rotor-z">
@@ -87,7 +90,7 @@ function Likes() {
                 </div>
               </div>
             </div>
-          </div>
+          </>
         )}
         {likes.map((like, index) => (
           <div

@@ -433,6 +433,8 @@ body {
 
 
 .match-card {
+  position: relative;
+  top: 10%;
   background-color: #ffdfec;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -525,6 +527,20 @@ body {
   padding: 15px;
 }
 
+.msg {
+  position: relative;
+  top: 20%;
+  margin-bottom: 20px;
+  
+}
+.diamond-member-message {
+  position: relative;
+  top: 10px;
+}
+
+
+
+
 .message-display {
   display: flex;
   flex-direction: column;
@@ -541,13 +557,12 @@ body {
   height: auto;
   padding: 16px;
   padding-bottom: 0;
+  margin: 0;
 }
 
-.message-container h3 {
+.diamond-message {
   position: absolute;
-  top: 37%;
-  padding-right: 25px;
-  margin-bottom: 0;
+  top: 35%;
 }
 
 .message-container-m {
@@ -1370,6 +1385,9 @@ body {
     overflow-y: auto;
     margin-top: 60px;
     padding: 15px;
+  }
+  .matches-display {
+    position: absolute;
   }
 
   .message-container-m {

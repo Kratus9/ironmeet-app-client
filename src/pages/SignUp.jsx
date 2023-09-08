@@ -58,10 +58,10 @@ const SignUp = () => {
       formDataToSend.append("preferences", formData.preferences);
       formDataToSend.append("image", formData.image);
 
-      console.log("Form Data:", formData);
+      
 
       const response = await service.post("/auth/signup", formDataToSend);
-      console.log("User registered successfully:", response.data.message);
+      
       navigate("/login");
     } catch (error) {
       if (error.response && error.response.status === 400) {

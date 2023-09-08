@@ -15,10 +15,10 @@ function Swipe() {
     const fetchUsers = async () => {
       try {
         const response = await service.get("user/swipe");
-        console.log("Response from server:", response);
+        
 
         if (response.status === 200) {
-          console.log("Users received:", response.data);
+          
           setUsers(response.data);
         } else {
           console.error("Error al obtener usuarios");
@@ -47,10 +47,10 @@ function Swipe() {
   }, [users, currentIndex, matched]);
 
   const handleSwipe = (direction) => async () => {
-    console.log("Starting handleSwipe with direction:", direction);
+    
 
     const userToSwipe = users[currentIndex];
-    console.log("Swiping user:", userToSwipe);
+    
 
     try {
       let action;
@@ -62,10 +62,10 @@ function Swipe() {
       const response = await service.post(
         `user/swipe/${userToSwipe._id}/${action}`
       );
-      console.log("Response from swipe:", response);
+      
 
       if (response.status === 200) {
-        console.log("New users data:", response.data);
+        
 
         if (response.data.message === "Matched!") {
           setMatched(true);
@@ -82,19 +82,19 @@ function Swipe() {
   };
 
   const handleAction = (action) => async () => {
-    console.log("Starting handleAction with action:", action);
+    
 
     const userToSwipe = users[currentIndex];
-    console.log("Swiping user:", userToSwipe);
+    
 
     try {
       const response = await service.post(
         `user/swipe/${userToSwipe._id}/${action}`
       );
-      console.log("Response from swipe:", response);
+      
 
       if (response.status === 200) {
-        console.log("New users data:", response.data);
+        
 
         if (response.data.message === "Matched!") {
           setMatched(true);

@@ -9,7 +9,7 @@ function EventDetails() {
   const { activeUserId } = useContext(AuthContext);
   const navigate = useNavigate();
   const { eventId } = useParams();
-  console.log(eventId);
+  
   const [imagePreview, setImagePreview] = useState(null);
   const [eventData, setEventData] = useState({
     title: "",
@@ -80,7 +80,7 @@ function EventDetails() {
       try {
         const response = await service.get(`/events/${eventId}/details`);
         setEventData(response.data);
-        console.log(response.data);
+        
         if (response.data.owner === activeUserId) {
           setIsCreator(true);
         }
