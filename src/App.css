@@ -314,6 +314,7 @@ body {
   position: relative;
   width: auto;
   height: 620px;
+  max-width: 400px;
   border-radius: 18px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -337,6 +338,8 @@ body {
 .tinder-card {
   width: 100vw;
   margin-top: 4px;
+  min-width: 300px;
+  min-height: 400px;
 }
 
 .user-info {
@@ -1239,6 +1242,11 @@ body {
   .event-img {
     width: 300px;
   }
+}
+
+.event-btn-details {
+  width: 69px;
+  padding: 10px;
 }
 
 
