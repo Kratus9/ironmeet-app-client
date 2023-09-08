@@ -185,7 +185,7 @@ function EventDetails() {
           )}
         </div>
 
-        <div>
+        <div className="txt-cont">
           <label>Title:</label>
           {isEditing ? (
             <input
@@ -199,7 +199,7 @@ function EventDetails() {
           )}
         </div>
 
-        <div>
+        <div className="txt-cont">
           <label>Location:</label>
           {isEditing ? (
             <select
@@ -219,7 +219,7 @@ function EventDetails() {
           )}
         </div>
 
-        <div>
+        <div className="txt-cont">
           <label>Description:</label>
           {isEditing ? (
             <textarea
