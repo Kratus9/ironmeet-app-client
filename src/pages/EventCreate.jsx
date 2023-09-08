@@ -149,10 +149,10 @@ function EventCreate() {
                 </option>
               ))}
             </select>
-              <label htmlfor="location">Location:</label>
+              <label htmlFor="location">Location:</label>
           </div>
           <div>
-            <label className="label-textarea" htmlfor="description">Description:</label>
+            <label className="label-textarea" htmlFor="description">Description:</label>
             <textarea
               name="description"
               value={formData.description}

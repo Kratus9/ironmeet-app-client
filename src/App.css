@@ -477,8 +477,19 @@ body {
   display: flex;
   justify-content: center;
 }
+.profile-img-container-notuser {
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
 
 .profile-img-container img {
+  clip-path: circle();
+  width: 120px;
+}
+.profile-img-container-notuser img {
   clip-path: circle();
   width: 120px;
 }
