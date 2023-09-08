@@ -9,7 +9,7 @@ function EventDetails() {
   const { activeUserId } = useContext(AuthContext);
   const navigate = useNavigate();
   const { eventId } = useParams();
-  console.log(eventId);
+  
   const [imagePreview, setImagePreview] = useState(null);
   const [eventData, setEventData] = useState({
     title: "",
@@ -75,21 +75,27 @@ function EventDetails() {
     "Zaragoza",
   ];
 
-  useEffect(() => {
-    const fetchEventDetails = async () => {
-      try {
-        const response = await service.get(`/events/${eventId}/details`);
-        setEventData(response.data);
-        console.log(response.data);
-        if (response.data.owner === activeUserId) {
-          setIsCreator(true);
-        }
-      } catch (error) {
-        console.log(error);
+useEffect(() => {
+  const fetchEventDetails = async () => {
+    try {
+      const response = await service.get(`/events/${eventId}/details`);
+      setEventData(response.data);
+
+      if (response.data.owner === activeUserId) {
+        setIsCreator(true);
       }
-    };
-    fetchEventDetails();
-  }, [eventId]);
+      
+      
+      const user = await service.get("/user/profile");
+      if (user.data.events.includes(eventId)) {
+        setAddedEvent(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  fetchEventDetails();
+}, [eventId, activeUserId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -185,7 +191,7 @@ function EventDetails() {
           )}
         </div>
 
-        <div>
+        <div className="txt-cont">
           <label>Title:</label>
           {isEditing ? (
             <input
@@ -199,7 +205,7 @@ function EventDetails() {
           )}
         </div>
 
-        <div>
+        <div className="txt-cont">
           <label>Location:</label>
           {isEditing ? (
             <select
@@ -219,7 +225,7 @@ function EventDetails() {
           )}
         </div>
 
-        <div>
+        <div className="txt-cont">
           <label>Description:</label>
           {isEditing ? (
             <textarea

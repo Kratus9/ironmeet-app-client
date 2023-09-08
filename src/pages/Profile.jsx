@@ -81,7 +81,7 @@ function Profile() {
     const fetchUserProfile = async () => {
       try {
         const response = await service.get("/user/profile");
-        console.log("Response from server:", response.data);
+        
         setUserData(response.data);
       } catch (error) {
         console.log(error);
@@ -92,7 +92,7 @@ function Profile() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(`Field "${name}" changed to "${value}"`);
+    
     setUserData({
       ...userData,
       [name]: value,
@@ -104,7 +104,7 @@ function Profile() {
 
     try {
       await service.patch("/user/profile/update", userData);
-      console.log("Profile updated successfully");
+      
 
       setIsEditing(false);
     } catch (error) {
@@ -132,7 +132,7 @@ function Profile() {
       <form onSubmit={handleSubmit} className="profile-container">
         <div>
           {isEditing ? (
-            (console.log("Image URL:", userData.image),
+            (
             (
               <div className="profile-img-container">
                 <img src={userData.image} alt={userData.name} width={100} />
