@@ -45,10 +45,7 @@ function Likes() {
       <div className="matches-display">
         {userRole === "user" && (
           <>
-            <div>
-              <h3 className="diamond-message">Become a Diamond Member to discover who liked you!</h3>
-            </div>
-
+            <div className="dia-container">
             <div className="wrap rotor-x">
               <div className="wrap rotor-y">
                 <div className="wrap rotor-z">
@@ -89,7 +86,13 @@ function Likes() {
                   <div className="triangle up face-8"></div>
                 </div>
               </div>
+            </div  >
+            <div className="diamond-message" >
+
+              <h3 >Become a Diamond Member to discover who liked you!</h3>
             </div>
+            </div>
+
           </>
         )}
         {likes.map((like, index) => (

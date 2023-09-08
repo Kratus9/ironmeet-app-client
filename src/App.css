@@ -539,6 +539,14 @@ body {
 }
 
 
+.dia-container {
+  position: relative;
+  top: 30px;
+  left: 2%;
+display: flex;
+text-align: center;
+}
+
 
 
 .message-display {
@@ -562,7 +570,10 @@ body {
 
 .diamond-message {
   position: absolute;
-  top: 35%;
+  top: 30%;
+}
+.diamond-message>h3 {
+  margin-top: 50px;
 }
 
 .message-container-m {
