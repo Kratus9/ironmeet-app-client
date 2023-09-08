@@ -638,7 +638,9 @@ body {
 }
 
 .event-img {
-  width: 100px;
+  border-radius: 5%;
+  border: 1px solid fuchsia;
+  width: 338px;
 }
 
 .event-btn-container {
@@ -648,6 +650,27 @@ body {
 }
 
 .event-btn {
+  margin-top: 20px;
+  background-color: #793398;
+  color: #fdf1f6;
+}
+
+
+.btn-event-details-container{
+  display: flex;
+  justify-content: space-around;
+  margin: 15px;
+}
+.fuchsia-btn-event-details {
+  padding: 8px;
+  padding-top: 9px;
+  margin-top: 20px;
+  background-color: #bb4fe9;
+  color: #fdf1f6;
+}
+
+.event-btn-details {
+  padding: 8px;
   margin-top: 20px;
   background-color: #793398;
   color: #fdf1f6;

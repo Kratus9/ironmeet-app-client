@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function Events() {
   const [events, setEvents] = useState([]);
+  const [addedEvent, setAddedEvent] = useState(false);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -29,9 +30,8 @@ function Events() {
       </div>
       <div className="event-container p-1">
         {events.map((event) => (
-          <Link to={`/events/${event._id}/details`}>
+          <Link to={`/events/${event._id}/details`} key={event._id} >
           <div
-            key={event._id}
             className="event-card"
             style={{
               backgroundImage: `url(${event.image})`,

@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import service from "../services/service.config";
 import { useNavigate } from "react-router";
 import { useParams } from "react-router";
+import { AuthContext } from "../context/auth.context";
+
 
 function EventDetails() {
+  const { activeUserId } = useContext(AuthContext);
   const navigate = useNavigate();
   const { eventId } = useParams();
   console.log(eventId);
@@ -16,6 +19,8 @@ function EventDetails() {
   });
 
   const [isEditing, setIsEditing] = useState(false);
+  const [addedEvent, setAddedEvent] = useState(false);
+  const [isCreator, setIsCreator] = useState(false);
 
   const locations = [
     "Álava",
@@ -76,12 +81,15 @@ function EventDetails() {
         const response = await service.get(`/events/${eventId}/details`);
         setEventData(response.data);
         console.log(response.data);
+        if (response.data.owner === activeUserId) {
+          setIsCreator(true);
+        }
       } catch (error) {
         console.log(error);
       }
     };
     fetchEventDetails();
-  }, []);
+  }, [eventId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -128,6 +136,15 @@ function EventDetails() {
     }
   };
 
+  const handleAddEvent = async () => {
+    try {
+      await service.post(`/user/addOrRemoveFavEvent/${eventId}`);
+      setAddedEvent(!addedEvent);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div className="logo">
@@ -149,13 +166,21 @@ function EventDetails() {
               />
               {imagePreview && (
                 <div className="event-img-container">
-                  <img src={imagePreview} alt="Preview" style={{ maxWidth: "100px" }} />
+                  <img
+                    src={imagePreview}
+                    alt="Preview"
+                    style={{ maxWidth: "100px" }}
+                  />
                 </div>
               )}
             </div>
           ) : (
             <div className="event-img-container">
-              <img src={eventData.image} alt={eventData.title} className="event-img" />
+              <img
+                src={eventData.image}
+                alt={eventData.title}
+                className="event-img"
+              />
             </div>
           )}
         </div>
@@ -207,22 +232,40 @@ function EventDetails() {
             <span>{eventData.description}</span>
           )}
         </div>
-        <div className="btn-profile">
-          <button className="event-btn" type="submit" disabled={!isEditing}>
-            Save
-          </button>
-          <button
-            className="event-btn"
-            type="button"
-            onClick={() => setIsEditing(!isEditing)}
-          >
-            {isEditing ? "Cancel" : "Edit"}
-          </button>
-          <button className="event-btn" onClick={handleDelete}>
-            Delete
-          </button>
-        </div>
       </form>
+      <div className="btn-event-details-container">
+        {isCreator ? (
+          <>
+            <button
+              className="event-btn-details"
+              type="submit"
+              disabled={!isEditing}
+            >
+              Save
+            </button>
+            <button
+              className="event-btn-details"
+              type="button"
+              onClick={() => setIsEditing(!isEditing)}
+            >
+              {isEditing ? "Cancel" : "Edit"}
+            </button>
+            <button className="event-btn-details" onClick={handleDelete}>
+              Delete
+            </button>
+          </>
+        ) : (
+          <button
+            className={` ${
+              addedEvent ? "event-btn-details" : "fuchsia-btn-event-details"
+            }`}
+            type="button"
+            onClick={handleAddEvent}
+          >
+            {addedEvent ? "Join!" : "You are in!"}
+          </button>
+        )}
+      </div>
     </div>
   );
 }
