@@ -39,6 +39,8 @@ function AuthWrapper(props) {
     userRole,
   };
 
+
+  
   if (isPageLoading === true) {
     return (
       <div>
